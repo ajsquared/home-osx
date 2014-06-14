@@ -1,0 +1,26 @@
+[user]
+    name = Andrew Johnson
+    email = andrew@andrewjamesjohnson.com
+[github]
+    user = ajsquared
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[alias]
+    ap = add --patch
+    bl = blame -w
+    br = branch
+    c = commit -a -m
+    ci = commit
+    co = checkout
+    df = diff
+    l = log --graph --decorate
+    lg = log --decorate -p
+    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    pom = push origin master
+    pullr = pull --rebase
+    rpull = pull --rebase --stat
+    s = status
+    unstage = reset

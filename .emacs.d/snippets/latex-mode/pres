@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: LaTex Presentation
+# key: pres
+# --
+\documentclass{beamer}
+\usepackage{palatino, graphicx, amsmath, amsfonts, amsthm, amssymb}
+
+\title{${1:Title}}
+\author{${2:Andrew Johnson}}
+\date{${3:Date}}
+
+\usetheme{Warsaw}
+
+\begin{document}
+\titlepage
+
+\begin{frame}
+\frametitle{$4}
+$0
+\end{frame}
+
+\end{document}

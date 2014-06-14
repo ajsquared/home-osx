@@ -1,0 +1,24 @@
+# -*- mode: snippet -*-
+# name: LaTex Document
+# key: doc
+# --
+\documentclass[11pt,letterpaper]{article}
+\usepackage{palatino, graphicx, amsmath, amsfonts, amsthm, amssymb, fullpage}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}
+
+\linespread{1.05}
+
+\title{${1:Title}}
+\author{${2:Andrew Johnson}}
+\date{${3:Date}}
+
+\begin{document}
+\maketitle
+$0
+\end{document}
