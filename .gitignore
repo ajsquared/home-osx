@@ -20,3 +20,4 @@ Downloads/
 .emacs.d/elpa/
 .emacs.d/tramp
 .ssh/
+.bash_history
