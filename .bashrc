@@ -42,6 +42,7 @@ export CDPATH=.:~
 export PATH="/usr/local/bin:$PATH:$HOME/.scripts:/usr/texbin:"
 export M2_HOME=/usr/share/maven
 export MAVEN_OPTS=-Xmx1024m
+export EDITOR="/usr/local/bin/emacsclient -c"
 
 # Make man more useful for shell built-ins
 man () {
