@@ -52,6 +52,10 @@
     (local-set-key (kbd "C-x C-k") 'server-edit)))
 (defun term-setup ()
   (yas-minor-mode -1))
+(defun rust-setup()
+  (define-key (current-local-map) "\C-c\C-c" 'compile)
+  (setq compilation-read-command t)
+  (setq compile-command "cargo build"))
 
 ;;; Mode hooks
 (add-hook 'c++-mode-hook 'c-setup)
@@ -67,5 +71,6 @@
 (add-hook 'org-finalize-agenda-hook 'org-agenda-setup)
 (add-hook 'mail-mode-hook 'mail-mode-setup)
 (add-hook 'term-mode-hook 'term-setup)
+(add-hook 'rust-mode-hook 'rust-setup)
 
 (provide 'mode-hooks)
