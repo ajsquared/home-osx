@@ -57,6 +57,7 @@
   (setq compilation-read-command t)
   (setq compile-command "cargo build"))
 (defun go-setup ()
+  (setq tab-width 4)
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq compile-command "go build -v && go test -v && go vet")
