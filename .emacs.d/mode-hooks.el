@@ -60,6 +60,7 @@
   (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq compile-command "go build -v && go test -v && go vet")
+  (define-key (current-local-map) "\C-c\C-c" 'compile)
   (local-set-key (kbd "M-.") 'godef-jump)
   (go-eldoc-setup))
 
