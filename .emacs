@@ -15,6 +15,7 @@
 (require 'mode-hooks)
 (require 'auto-complete-config)
 (require 'rainbow-delimiters)
+(require 'go-autocomplete)
 
 ;;; Set frame title
 (setq frame-title-format
@@ -28,11 +29,13 @@
 (scroll-bar-mode -1)
 (load-theme 'wilson t)
 (if (window-system)
-    (if (eq system-type 'darwin)
+    (progn
+      (set-exec-path-from-shell-PATH)
+      (if (eq system-type 'darwin)
 	(progn
 	  (set-face-attribute 'default nil :font "Monaco-14")
 	  (maximize-frame))
-      (toggle-maximize)))
+      (toggle-maximize))))
 (powerline-default-theme)
 (global-rainbow-delimiters-mode)
 (ac-config-default)

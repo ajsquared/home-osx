@@ -36,10 +36,12 @@ if [ -f "$BREW_PREFIX/etc/bash_completion" ]; then
     . "$BREW_PREFIX/etc/bash_completion"
 fi
 
+export GOROOT="/usr/local/go"
+export GOPATH="$HOME/Documents/.gocode"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 export INPUTRC="~/.inputrc"
 export CDPATH=.:~
-export PATH="/usr/local/bin:$PATH:$HOME/.scripts:/usr/texbin:"
+export PATH="/usr/local/bin:$PATH:$HOME/.scripts:/usr/texbin:$GOROOT/bin:$GOPATH/bin:"
 export M2_HOME=/usr/share/maven
 export MAVEN_OPTS=-Xmx1024m
 export EDITOR="/usr/local/bin/emacsclient"
@@ -51,8 +53,6 @@ man () {
 
 # Enable liquidprompt
 source "$HOME/.liquidprompt"
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # Tmux session tab-completion
 _tma() {

@@ -52,10 +52,16 @@
     (local-set-key (kbd "C-x C-k") 'server-edit)))
 (defun term-setup ()
   (yas-minor-mode -1))
-(defun rust-setup()
+(defun rust-setup ()
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (setq compilation-read-command t)
   (setq compile-command "cargo build"))
+(defun go-setup ()
+  (setq gofmt-command "goimports")
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (setq compile-command "go build -v && go test -v && go vet")
+  (local-set-key (kbd "M-.") 'godef-jump)
+  (go-eldoc-setup))
 
 ;;; Mode hooks
 (add-hook 'c++-mode-hook 'c-setup)
@@ -72,5 +78,6 @@
 (add-hook 'mail-mode-hook 'mail-mode-setup)
 (add-hook 'term-mode-hook 'term-setup)
 (add-hook 'rust-mode-hook 'rust-setup)
+(add-hook 'go-mode-hook 'go-setup)
 
 (provide 'mode-hooks)
