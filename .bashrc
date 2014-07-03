@@ -37,7 +37,7 @@ if [ -f "$BREW_PREFIX/etc/bash_completion" ]; then
 fi
 
 export GOROOT="/usr/local/go"
-export GOPATH="$HOME/Documents/.gocode"
+export GOPATH="$HOME/Documents/projects/go"
 export PYTHONSTARTUP="$HOME/.pythonrc.py"
 export INPUTRC="~/.inputrc"
 export CDPATH=.:~
