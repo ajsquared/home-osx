@@ -31,7 +31,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-export BREW_PREFIX=$(brew --prefix)
+export BREW_PREFIX=$(/usr/local/bin/brew --prefix)
 if [ -f "$BREW_PREFIX/etc/bash_completion" ]; then
     . "$BREW_PREFIX/etc/bash_completion"
 fi
