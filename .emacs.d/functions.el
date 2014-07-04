@@ -102,8 +102,10 @@
                   (indent-region (region-beginning) (region-end) nil))))))
 
 (defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
+  (let ((path-from-shell (shell-command-to-string "$SHELL -i -c 'echo $PATH'"))
+	(gopath-from-shell (shell-command-to-string "$SHELL -i -c 'echo $GOPATH'")))
     (setenv "PATH" path-from-shell)
+    (setenv "GOPATH" gopath-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
 (provide 'functions)
