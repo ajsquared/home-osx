@@ -16,6 +16,7 @@
 (require 'auto-complete-config)
 (require 'rainbow-delimiters)
 (require 'go-autocomplete)
+(require 'env-var-import)
 
 ;;; Set frame title
 (setq frame-title-format
@@ -30,7 +31,7 @@
 (load-theme 'wilson t)
 (if (window-system)
     (progn
-      (set-exec-path-from-shell-PATH)
+      (env-var-import '("GOPATH"))
       (if (eq system-type 'darwin)
 	(progn
 	  (set-face-attribute 'default nil :font "Monaco-14")
