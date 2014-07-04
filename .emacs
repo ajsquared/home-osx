@@ -14,6 +14,11 @@
 (require 'rainbow-delimiters)
 (require 'go-autocomplete)
 (require 'env-var-import)
+(require 'helm)
+(require 'helm-config)
+(require 'helm-files)
+(require 'helm-grep)
+(require 'ac-helm)
 (require 'functions)
 (require 'keyboard-shortcuts)
 (require 'mode-hooks)
@@ -25,7 +30,7 @@
                                         "%b"))))
 
 ;;; Enable modes and window setup
-(setq default-directory "/Users/ajsquared")
+(setq default-directory "/Users/ajsquared/")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (load-theme 'wilson t)
@@ -38,9 +43,8 @@
 (delete-selection-mode)
 (yas/global-mode 1)
 (global-linum-mode)
-(ido-mode t)
+(helm-mode 1)
 (global-subword-mode)
-(ido-everywhere 1)
 (show-paren-mode)
 (global-font-lock-mode t)
 (mouse-wheel-mode t)
@@ -89,14 +93,23 @@
 			forward-char))
 	  (ding))))
 
-;;; Configure ido
-(setq ido-save-directory-list-file "/dev/null")
-(setq ido-enable-flex-matching t)
-(setq ido-enable-last-directory-history nil)
-(setq ido-record-commands nil)
-(setq ido-execute-command-cache nil)
-(setq ido-ignore-buffers '("\\` " "\\`*"))
-(setq ido-ignore-files '("\\`\\." "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" "\\`\\.git/" "\\.pdf" "\\.class" "\\.pyc" "\\.log" "\\.aux" "\\.nav" "\\.out" "\\.snm"))
+;;; Configure helm
+(setq helm-scroll-amount 4)
+(setq helm-quick-update t)
+(setq helm-idle-delay 0.01)
+(setq helm-input-idle-delay 0.01)
+(setq helm-ff-search-library-in-sexp t)
+(setq helm-split-window-default-side 'other)
+(setq helm-split-window-in-side-p t)
+(setq helm-candidate-number-limit 200)
+(setq helm-M-x-requires-pattern 0)
+(setq helm-ff-skip-boring-files t)
+(setq helm-boring-file-regexp-list
+      '("\\`\\." "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" "\\`\\.git/" "\\.pdf" "\\.class" "\\.pyc" "\\.log" "\\.aux" "\\.nav" "\\.out" "\\.snm" "\\.elc"))
+(setq helm-ff-file-name-history-use-recentf t)
+(setq helm-move-to-line-cycle-in-source t)
+(setq ido-use-virtual-buffers t)
+(setq helm-buffers-fuzzy-matching t)
 
 ;;; Configure AUCTex
 (setq TeX-auto-save t)
@@ -117,14 +130,6 @@
 (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . auto)))
 (setq org-export-with-LaTeX-fragments t)
 (setq org-enforce-todo-dependencies t)
-
-;;; Custom faces
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ido-subdir ((t (:foreground "coral3")))))
 
 ;;; Start the server
 (server-start)

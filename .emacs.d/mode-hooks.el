@@ -64,5 +64,6 @@
 (add-hook 'LaTeX-mode-hook 'latex-setup)
 (add-hook 'org-finalize-agenda-hook 'org-agenda-setup)
 (add-hook 'go-mode-hook 'go-setup)
+(add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
 (provide 'mode-hooks)
