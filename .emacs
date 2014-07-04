@@ -44,6 +44,7 @@
 (yas/global-mode 1)
 (global-linum-mode)
 (helm-mode 1)
+(projectile-global-mode)
 (global-subword-mode)
 (show-paren-mode)
 (global-font-lock-mode t)
@@ -77,6 +78,7 @@
 (setq auto-save-timeout 120)
 (setq auto-save-list-file-prefix temporary-file-directory)
 (setq require-final-newline t)
+(setq projectile-enable-caching t)
 (setq ring-bell-function 
       (lambda ()
 	(unless (memq this-command
