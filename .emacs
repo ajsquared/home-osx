@@ -10,13 +10,13 @@
 (require 'autopair)
 (require 'yasnippet)
 (require 'markdown-mode)
-(require 'functions)
-(require 'keyboard-shortcuts)
-(require 'mode-hooks)
 (require 'auto-complete-config)
 (require 'rainbow-delimiters)
 (require 'go-autocomplete)
 (require 'env-var-import)
+(require 'functions)
+(require 'keyboard-shortcuts)
+(require 'mode-hooks)
 
 ;;; Set frame title
 (setq frame-title-format
