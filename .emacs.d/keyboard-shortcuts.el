@@ -16,8 +16,6 @@
 (global-set-key "\M-m" 'move-beginning-of-line)
 (global-set-key "\C-a" 'back-to-indentation)
 (global-set-key "\C-cw" 'count-words)
-(global-set-key "\C-cs" 'sr-speedbar-toggle)
-(global-set-key "\C-ct" 'here-term)
 
 (when (eq system-type 'darwin) ;; mac specific settings
   (setq mac-control-modifier 'meta)

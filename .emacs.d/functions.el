@@ -1,15 +1,3 @@
-(defun toggle-fullscreen ()
-  (interactive)
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-			 '(2 "_NET_WM_STATE_FULLSCREEN" 0)))
-
-(defun toggle-maximize ()
-  (interactive)
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                         '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32
-                         '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0)))
-
 (defun ido-execute-command ()
   (interactive)
   (call-interactively
@@ -58,11 +46,6 @@
 	(setq fname (concat "/sudo:root@localhost:" fname)))
       (find-alternate-file fname))))
 
-(defun here-term ()
-  (interactive)
-  (shell-command (concat "gnome-terminal --working-directory=" default-directory " &"))
-  (delete-other-windows))
-
 (defun TeX-insert-single-quote (arg)
   (interactive "p")
   (cond
@@ -100,19 +83,5 @@
                                                      plain-tex-mode))
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
-
-(defun chomp (str)
-  "Chomp leading and tailing whitespace from STR."
-  (replace-regexp-in-string (rx (or (: bos (* (any " \t\n")))
-				    (: (* (any " \t\n")) eos)))
-			    ""
-			    str))
-
-(defun set-exec-path-from-shell-PATH ()
-  (let ((path-from-shell (chomp (shell-command-to-string "$SHELL -i -c 'echo $PATH'")))
-	(gopath-from-shell (chomp (shell-command-to-string "$SHELL -i -c 'echo $GOPATH'"))))
-    (setenv "PATH" path-from-shell)
-    (setenv "GOPATH" gopath-from-shell)
-    (setq exec-path (split-string path-from-shell path-separator))))
 
 (provide 'functions)
