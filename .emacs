@@ -29,15 +29,10 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (load-theme 'wilson t)
-(if (window-system)
-    (progn
-      (env-var-import '("GOPATH"))
-      (if (eq system-type 'darwin)
-	(progn
-	  (set-face-attribute 'default nil :font "Monaco-14")
-	  (maximize-frame))
-      (toggle-maximize))))
-(powerline-default-theme)
+(when (and (window-system) (eq system-type 'darwin))
+  (env-var-import '("GOPATH"))
+  (set-face-attribute 'default nil :font "Monaco-14")
+  (maximize-frame))
 (global-rainbow-delimiters-mode)
 (ac-config-default)
 (delete-selection-mode)
@@ -52,11 +47,11 @@
 (column-number-mode 1)
 (bar-cursor-mode 1)
 (autopair-global-mode 1)
+(powerline-default-theme)
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 
 ;;; General variable customization
-(setq ido-save-directory-list-file "/dev/null")
 (setq initial-major-mode 'text-mode)
 (setq c-default-style "bsd")
 (setq-default indent-tabs-mode t)
@@ -66,7 +61,6 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 (setq read-file-name-completion-ignore-case t)
 (setq initial-scratch-message nil)
-(setq browse-url-firefox-program "firefox")
 (setq dired-recursive-deletes 'top)
 (setq show-paren-style 'parenthesis)
 (setq autopair-autowrap t)
@@ -96,6 +90,7 @@
 	  (ding))))
 
 ;;; Configure ido
+(setq ido-save-directory-list-file "/dev/null")
 (setq ido-enable-flex-matching t)
 (setq ido-enable-last-directory-history nil)
 (setq ido-record-commands nil)
@@ -108,11 +103,9 @@
 (setq TeX-parse-self t)
 (setq TeX-newline-function 'newline-and-indent)
 (setq TeX-PDF-mode t)
-(setq TeX-view-program-list (quote (("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b"))))
-(setq TeX-view-program-selection (quote (((output-dvi style-pstricks) "dvips and gv") (output-dvi "open -a Preview.app %s.pdf") (output-pdf "Skim") (output-html "open -a Preview.app %s.pdf"))))
+(setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b")))
+(setq TeX-view-program-selection '((output-dvi "open -a Preview.app %s.pdf") (output-pdf "Skim") (output-html "open -a Preview.app %s.pdf")))
 (setq TeX-auto-local "/tmp/")
-(setenv "PATH" (concat "/usr/texbin:/usr/local/bin:" (getenv "PATH")))
-(setq exec-path (append '("/usr/texbin" "/usr/local/bin") exec-path))
 
 ;;; Configure org-mode
 (setq org-return-follows-link t)

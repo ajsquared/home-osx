@@ -12,27 +12,11 @@
                              (cons (format "%S" s) ido-execute-command-cache))))))
        ido-execute-command-cache)))))
 
-(defun open-current-buffer-in-frame ()
-  (interactive)
-  (select-frame (make-frame))
-  (switch-to-buffer (current-buffer)))
-
 (defun save-buffer-if-visiting-file (&optional args)
   "Save the current buffer only if it is visiting a file"
   (interactive)
   (if (buffer-file-name)
       (save-buffer args)))
-
-(defun count-words (&optional start end)
-  "Prints number of lines, words and characters in region or whole buffer."
-  (interactive)
-  (let ((n 0)
-        (start (if mark-active (region-beginning) (point-min)))
-        (end (if mark-active (region-end) (point-max))))
-    (save-excursion
-      (goto-char start)
-      (while (< (point) end) (if (forward-word 1) (setq n (1+ n)))))
-    (message "%3d %3d %3d" (count-lines start end) n (- end start))))
 
 (defun find-alternative-file-with-sudo ()
   (interactive)

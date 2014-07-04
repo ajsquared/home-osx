@@ -3,8 +3,6 @@
 (global-set-key "\C-x\C-k" 'kill-this-buffer)
 (global-set-key "\C-xc" 'delete-frame)
 (global-set-key "\C-xv" 'magit-status)
-(global-set-key "\C-xf" 'open-current-buffer-in-frame)
-(global-set-key "\C-cf" 'indent-region)
 (global-set-key "\C-cr" 'replace-string)
 (global-set-key "\C-z" 'undo)
 (global-set-key "\M-/" 'hippie-expand)
@@ -15,7 +13,6 @@
 (global-set-key "\C-cu" 'uncomment-region)
 (global-set-key "\M-m" 'move-beginning-of-line)
 (global-set-key "\C-a" 'back-to-indentation)
-(global-set-key "\C-cw" 'count-words)
 
 (when (eq system-type 'darwin) ;; mac specific settings
   (setq mac-control-modifier 'meta)
