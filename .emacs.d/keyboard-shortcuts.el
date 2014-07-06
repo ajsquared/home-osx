@@ -20,7 +20,7 @@
 (global-set-key (kbd "C-c h m") 'helm-man-woman)
 (global-set-key (kbd "C-c h f") 'helm-find)
 (global-set-key (kbd "C-c h l") 'helm-locate)
-(global-set-key (kbd "C-c h o") 'helm-occur)
+(global-set-key (kbd "C-c o") 'helm-occur)
 (global-set-key (kbd "C-c h r") 'helm-resume)
 (global-set-key (kbd "C-;") 'ac-complete-with-helm)
 (global-set-key (kbd "C-c p h") 'helm-projectile)
