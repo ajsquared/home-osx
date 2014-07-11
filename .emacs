@@ -114,6 +114,8 @@
 (setq helm-move-to-line-cycle-in-source t)
 (setq ido-use-virtual-buffers t)
 (setq helm-buffers-fuzzy-matching t)
+(setq recentf-exclude
+      '("COMMIT_EDITMSG" "\\.emacs\\.d/elpa"))
 
 ;;; Configure AUCTex
 (setq TeX-auto-save t)
