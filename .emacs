@@ -34,7 +34,7 @@
 (setq default-directory "/Users/ajsquared/")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(load-theme 'darkburn t)
+(load-theme 'zenburn t)
 (when (and (window-system) (eq system-type 'darwin))
   (env-var-import '("GOPATH"))
   (set-face-attribute 'default nil :font "Monaco-14")
