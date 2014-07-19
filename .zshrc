@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="nebirhos"
+ZSH_THEME="candy"
 
 ENABLE_CORRECTION="true"
 
