@@ -5,7 +5,7 @@ ZSH_THEME="dst"
 ENABLE_CORRECTION="true"
 unsetopt listbeep
 
-plugins=(git brew git-extras osx sudo)
+plugins=(git brew git-extras osx sudo zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
