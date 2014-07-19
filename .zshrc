@@ -1,6 +1,6 @@
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="candy"
+ZSH_THEME="dst"
 
 ENABLE_CORRECTION="true"
 
