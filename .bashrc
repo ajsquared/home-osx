@@ -10,9 +10,6 @@ export HISTCONTROL=ignoreboth
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# Set that the terminal is capable of 256 colors
-export TERM="xterm-256color"
-
 # Alias definitions
 source "$HOME/.bash_aliases"
 
@@ -22,12 +19,7 @@ if [ -f "$BREW_PREFIX/etc/bash_completion" ]; then
     . "$BREW_PREFIX/etc/bash_completion"
 fi
 
-export GOROOT="/usr/local/go"
-export GOPATH="$HOME/Documents/projects/go"
-export INPUTRC="~/.inputrc"
-export CDPATH=.:~
-export PATH="/usr/local/bin:$PATH:$HOME/.scripts:/usr/texbin:$GOROOT/bin:$GOPATH/bin"
-export EDITOR="/usr/local/bin/emacsclient"
+source "$HOME/.env_vars"
 
 # Make man more useful for shell built-ins
 man () {
@@ -38,6 +30,7 @@ man () {
 source "$HOME/.liquidprompt"
 
 # Tmux session tab-completion
+alias tma='tmux attach -t $1'
 _tma() {
         TMUX_SESSIONS=$(tmux ls | awk '{print $1}' | sed 's/://g' | xargs)
 
