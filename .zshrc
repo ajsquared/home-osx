@@ -16,5 +16,6 @@ export INPUTRC="~/.inputrc"
 export CDPATH=.:~
 export PATH="/usr/local/bin:$PATH:$HOME/.scripts:/usr/texbin:$GOROOT/bin:$GOPATH/bin"
 export EDITOR="/usr/local/bin/emacsclient"
+export TERM="xterm-256color"
 
 source "$HOME/.bash_aliases"
