@@ -39,7 +39,7 @@
   (env-var-import '("GOPATH"))
   (set-face-attribute 'default nil :font "Monaco-14")
   (maximize-frame))
-(global-rainbow-delimiters-mode)
+(rainbow-delimiters-mode)
 (ac-config-default)
 (delete-selection-mode)
 (yas/global-mode 1)
