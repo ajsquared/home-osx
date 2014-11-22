@@ -37,3 +37,4 @@ Applications
 .ideaLibSources
 VirtualBox VMs
 .boot2docker
+.hdfs-shell
