@@ -39,3 +39,4 @@ VirtualBox VMs
 .boot2docker
 .hdfs-shell
 .IntelliJIdea14
+.lein/repl-history
