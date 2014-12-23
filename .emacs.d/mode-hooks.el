@@ -51,6 +51,13 @@
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (local-set-key (kbd "M-.") 'godef-jump)
   (go-eldoc-setup))
+(defun clojure-setup ()
+  (cider-turn-on-eldoc-mode)
+  (subword-mode)
+  (ac-flyspell-workaround)
+  (ac-cider-setup))
+(defun cider-repl-setup()
+  (ac-cider-setup))
 
 ;;; Mode hooks
 (add-hook 'c++-mode-hook 'c-setup)
@@ -65,5 +72,8 @@
 (add-hook 'org-finalize-agenda-hook 'org-agenda-setup)
 (add-hook 'go-mode-hook 'go-setup)
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
+(add-hook 'cider-mode-hook 'clojure-setup)
+(add-hook 'cider-repl-mode-hook 'cider-repl-setup)
+(add-hook 'clojure-mode-hook 'cider-mode)
 
 (provide 'mode-hooks)

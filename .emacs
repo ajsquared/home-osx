@@ -19,6 +19,9 @@
 (require 'helm-files)
 (require 'helm-grep)
 (require 'ac-helm)
+(require 'cider)
+(require 'cider-eldoc)
+(require 'ac-cider)
 (require 'helm-descbinds)
 (require 'functions)
 (require 'keyboard-shortcuts)
@@ -136,6 +139,9 @@
 (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . auto)))
 (setq org-export-with-LaTeX-fragments t)
 (setq org-enforce-todo-dependencies t)
+
+;;; Configure CIDER
+(setq nrepl-hide-special-buffers t)
 
 ;;; Start the server
 (server-start)

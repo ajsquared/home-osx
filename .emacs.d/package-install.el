@@ -10,7 +10,7 @@
 (setq url-http-attempt-keepalives nil)
 
 (defvar ajsquared-packages
-  '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode zenburn-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode env-var-import helm helm-descbinds ac-helm projectile helm-projectile)
+  '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode zenburn-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode env-var-import helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider)
   "A list of packages to ensure are installed at launch.")
 
 (defun ajsquared-packages-installed-p ()
