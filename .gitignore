@@ -40,3 +40,4 @@ VirtualBox VMs
 .hdfs-shell
 .IntelliJIdea14
 .lein/repl-history
+.npm
