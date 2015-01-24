@@ -42,3 +42,6 @@ VirtualBox VMs
 .lein/repl-history
 .npm
 .keybase-installer
+.config
+.gnupg
+.local
