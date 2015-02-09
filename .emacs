@@ -1,5 +1,5 @@
 ;;; Set load path
-(add-to-list 'load-path "~/.emacs.d")
+(add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;;; Initialize package system
 (require 'package-install)
