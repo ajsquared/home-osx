@@ -129,7 +129,7 @@
 (setq TeX-newline-function 'newline-and-indent)
 (setq TeX-PDF-mode t)
 (setq TeX-view-program-list '(("Skim" "/Applications/Skim.app/Contents/SharedSupport/displayline %n %o %b")))
-(setq TeX-view-program-selection '((output-dvi "open -a Preview.app %s.pdf") (output-pdf "Skim") (output-html "open -a Preview.app %s.pdf")))
+(setq TeX-view-program-selection '((output-pdf "Skim")))
 (setq TeX-auto-local "/tmp/")
 
 ;;; Configure org-mode
