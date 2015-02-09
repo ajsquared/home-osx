@@ -4,6 +4,9 @@
 ;;; Initialize package system
 (require 'package-install)
 
+;;; Suppress redefinition warnings before anything is loaded
+(setq ad-redefinition-action 'accept)
+
 ;;; Packages to require
 (require 'powerline)
 (require 'bar-cursor)
