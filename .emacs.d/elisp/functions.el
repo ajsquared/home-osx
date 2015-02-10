@@ -1,17 +1,3 @@
-(defun ido-execute-command ()
-  (interactive)
-  (call-interactively
-   (intern
-    (ido-completing-read
-     "M-x "
-     (progn
-       (unless ido-execute-command-cache
-         (mapatoms (lambda (s)
-                     (when (commandp s)
-                       (setq ido-execute-command-cache
-                             (cons (format "%S" s) ido-execute-command-cache))))))
-       ido-execute-command-cache)))))
-
 (defun save-buffer-if-visiting-file (&optional args)
   "Save the current buffer only if it is visiting a file"
   (interactive)
