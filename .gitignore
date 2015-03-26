@@ -47,3 +47,4 @@ VirtualBox VMs
 .local
 .cache
 .calibre_calibre_GUI.lock
+.emacs.d/ensime
