@@ -102,6 +102,7 @@
 			backward-char
 			forward-char))
 	  (ding))))
+(setq magit-last-seen-setup-instructions "1.4.0")
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
