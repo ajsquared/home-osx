@@ -44,7 +44,7 @@
 (when (and (window-system) (eq system-type 'darwin))
   (env-var-import '("GOPATH"))
   (set-face-attribute 'default nil :font "Monaco-14")
-  (maximize-frame))
+  (toggle-frame-fullscreen))
 (rainbow-delimiters-mode)
 (ac-config-default)
 (delete-selection-mode)
