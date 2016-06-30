@@ -37,7 +37,7 @@
                                         "%b"))))
 
 ;;; Enable modes and window setup
-(setq default-directory "/Users/ajsquared/")
+(setq default-directory "~/")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (load-theme 'apropospriate-dark t)
