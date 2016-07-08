@@ -78,3 +78,4 @@ development
 *.pem
 etsync.sh
 go
+.oracle_jre_usage
