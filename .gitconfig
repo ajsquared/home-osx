@@ -28,3 +28,5 @@
     tool = ediff
 [mergetool "ediff"]
     cmd = emacsclient -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
+[push]
+	default = simple
