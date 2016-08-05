@@ -79,3 +79,4 @@ development
 etsync.sh
 go
 .oracle_jre_usage
+.emacs.d/recentf
