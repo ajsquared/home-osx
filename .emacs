@@ -1,8 +1,16 @@
 ;;; Set load path
+
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;;; Initialize package system
-(require 'package-install)
+(package-initialize)
+(add-to-list 'package-archives 
+	     '("marmalade" .
+	       "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;(package-initialize)
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode env-var-import helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
