@@ -108,6 +108,7 @@
 			forward-char))
 	  (ding))))
 (setq magit-last-seen-setup-instructions "1.4.0")
+(setq magit-git-executable "/usr/local/bin/git")
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
