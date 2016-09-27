@@ -12,6 +12,7 @@ jq
 karn
 maven
 mercurial
+mobile-shell
 node
 pigz
 pyenv-virtualenv
