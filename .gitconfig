@@ -1,6 +1,6 @@
 [user]
     name = Andrew Johnson
-    email = andrew@andrewjamesjohnson.com
+    email = ajohnson@stripe.com
 [github]
     user = ajsquared
 [color]
@@ -30,3 +30,7 @@
     cmd = emacsclient -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [push]
 	default = simple
+[url "git@github.com:"]
+	insteadOf = https://github.com/
+[core]
+	preloadindex = true

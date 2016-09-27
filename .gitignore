@@ -85,7 +85,6 @@ go
 .bundle
 .history
 .rbenv
-.rbenvrc
 .stripe-repos.sh
 .vagrant.d/
 Dropbox (Stripe)/
