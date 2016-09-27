@@ -80,3 +80,13 @@ etsync.sh
 go
 .oracle_jre_usage
 .emacs.d/recentf
+.bash_sessions/
+.bundle-gemfile-hook
+.bundle
+.history
+.rbenv
+.rbenvrc
+.stripe-repos.sh
+.vagrant.d/
+Dropbox (Stripe)/
+stripe/
