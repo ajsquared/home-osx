@@ -6,4 +6,4 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-source /Users/ajohnson/.rbenvrc
+source ~/.rbenvrc

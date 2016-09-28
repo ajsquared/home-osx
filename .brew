@@ -2,6 +2,7 @@ ack
 ant
 bash-completion
 cctools
+emacs
 git
 git-extras
 gnupg
