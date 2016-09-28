@@ -6,11 +6,9 @@
 (package-initialize)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode env-var-import helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -50,7 +48,8 @@
 (scroll-bar-mode -1)
 (load-theme 'apropospriate-dark t)
 (when (and (window-system) (eq system-type 'darwin))
-  (env-var-import '("GOPATH"))
+  (exec-path-from-shell-initialize)
+  (exec-path-from-shell-copy-env "GOPATH")
   (set-face-attribute 'default nil :font "Monaco-14")
   (toggle-frame-fullscreen))
 (rainbow-delimiters-mode)
