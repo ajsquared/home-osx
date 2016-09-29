@@ -88,3 +88,5 @@ go
 .vagrant.d/
 Dropbox (Stripe)/
 stripe/
+.pgpass
+.psql_history
