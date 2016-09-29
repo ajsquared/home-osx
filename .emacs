@@ -22,7 +22,6 @@
 (require 'auto-complete-config)
 (require 'rainbow-delimiters)
 (require 'go-autocomplete)
-(require 'env-var-import)
 (require 'helm)
 (require 'helm-config)
 (require 'helm-files)
