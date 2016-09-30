@@ -22,6 +22,7 @@
     pom = push origin master
     pullr = pull --rebase
     rpull = pull --rebase --stat
+    prom = pull --rebase --stat origin master
     s = status
     unstage = reset
 [merge]
