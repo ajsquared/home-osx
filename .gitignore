@@ -91,3 +91,4 @@ stripe/
 .pgpass
 .psql_history
 .stripe
+/.pry_history
