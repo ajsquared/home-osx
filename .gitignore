@@ -90,3 +90,4 @@ Dropbox (Stripe)/
 stripe/
 .pgpass
 .psql_history
+.stripe
