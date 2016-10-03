@@ -92,3 +92,4 @@ stripe/
 .psql_history
 .stripe
 /.pry_history
+.pex
