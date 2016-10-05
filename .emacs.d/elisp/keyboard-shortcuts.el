@@ -21,6 +21,7 @@
 (global-set-key (kbd "C-c h r") 'helm-resume)
 (global-set-key (kbd "C-;") 'ac-complete-with-helm)
 (global-set-key (kbd "C-c p h") 'helm-projectile)
+(global-set-key (kbd "C-c a") 'helm-ag)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
