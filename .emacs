@@ -128,6 +128,7 @@
 (setq helm-move-to-line-cycle-in-source t)
 (setq ido-use-virtual-buffers t)
 (setq helm-buffers-fuzzy-matching t)
+(setq helm-ag-insert-at-point 'symbol)
 (setq recentf-exclude
       '("COMMIT_EDITMSG" "\\.emacs\\.d/elpa"))
 
