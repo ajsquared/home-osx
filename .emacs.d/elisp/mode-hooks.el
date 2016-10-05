@@ -44,6 +44,10 @@
   (ac-cider-setup))
 (defun cider-repl-setup()
   (ac-cider-setup))
+(defun js-setup()
+  (setq tab-width 2)
+  (setq js-indent-level 2)
+  (setq js2-basic-offset 2))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -58,5 +62,6 @@
 (add-hook 'cider-mode-hook 'clojure-setup)
 (add-hook 'cider-repl-mode-hook 'cider-repl-setup)
 (add-hook 'clojure-mode-hook 'cider-mode)
+(add-hook 'js2-mode-hook 'js-setup)
 
 (provide 'mode-hooks)
