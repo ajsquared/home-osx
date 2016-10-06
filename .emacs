@@ -70,6 +70,8 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+(add-to-list 'auto-mode-alist '("WORKSPACE" . python-mode))
+(add-to-list 'auto-mode-alist '("BUILD" . python-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
