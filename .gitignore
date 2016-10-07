@@ -94,3 +94,4 @@ stripe/
 /.pry_history
 .pex
 Dropbox (Personal)
+.pylint.d
