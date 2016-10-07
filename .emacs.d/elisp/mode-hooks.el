@@ -1,6 +1,7 @@
 (defun python-setup ()
   (setq tab-width 4)
-  (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action)))
+  (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))
+  (flycheck-mode))
 (defun elisp-setup ()
   (eldoc-mode 1)
   (define-key (current-local-map) "\C-c\C-c" 'byte-recompile-directory))
