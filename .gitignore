@@ -95,3 +95,4 @@ stripe/
 .pex
 Dropbox (Personal)
 .pylint.d
+airflow
