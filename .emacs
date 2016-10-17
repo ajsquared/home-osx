@@ -70,8 +70,11 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
-(add-to-list 'auto-mode-alist '("WORKSPACE" . python-mode))
-(add-to-list 'auto-mode-alist '("BUILD" . python-mode))
+;; Derived mode for bazel files
+(define-derived-mode bazel-mode python-mode "Bazel")
+(add-to-list 'auto-mode-alist '("WORKSPACE" . bazel-mode))
+(add-to-list 'auto-mode-alist '("BUILD" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\.bzl" . js2-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
