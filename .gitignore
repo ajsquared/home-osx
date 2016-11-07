@@ -98,3 +98,4 @@ Dropbox (Personal)
 airflow
 .bazel
 .bazel-deps-cache
+.python-eggs
