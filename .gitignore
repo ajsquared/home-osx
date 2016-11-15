@@ -99,3 +99,4 @@ airflow
 .bazel
 .bazel-deps-cache
 .python-eggs
+.scalding.dep.cache
