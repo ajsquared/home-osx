@@ -74,7 +74,7 @@
 (define-derived-mode bazel-mode python-mode "Bazel")
 (add-to-list 'auto-mode-alist '("WORKSPACE" . bazel-mode))
 (add-to-list 'auto-mode-alist '("BUILD" . bazel-mode))
-(add-to-list 'auto-mode-alist '("\\.bzl" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.bzl" . bazel-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
