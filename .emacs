@@ -12,6 +12,7 @@
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
+(setq exec-path-from-shell-check-startup-files nil)
 
 ;;; Packages to require
 (require 'powerline)
