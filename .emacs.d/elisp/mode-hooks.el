@@ -64,5 +64,6 @@
 (add-hook 'cider-repl-mode-hook 'cider-repl-setup)
 (add-hook 'clojure-mode-hook 'cider-mode)
 (add-hook 'js2-mode-hook 'js-setup)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (provide 'mode-hooks)

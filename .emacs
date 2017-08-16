@@ -52,7 +52,6 @@
   (exec-path-from-shell-copy-env "GOPATH")
   (set-face-attribute 'default nil :font "Monaco-14")
   (toggle-frame-fullscreen))
-(rainbow-delimiters-mode)
 (ac-config-default)
 (delete-selection-mode)
 (yas/global-mode 1)
