@@ -23,3 +23,4 @@ the_silver_searcher
 tmux
 wget
 zsh
+reattach-to-user-namespace
