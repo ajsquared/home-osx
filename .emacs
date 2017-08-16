@@ -117,6 +117,7 @@
 	  (ding))))
 (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-git-executable "/usr/local/bin/git")
+(setq vc-follow-symlinks t)
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
