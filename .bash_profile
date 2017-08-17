@@ -1,8 +1,4 @@
 [[ -s ~/.bashrc ]] && source ~/.bashrc
-### BEGIN STRIPE
 source ~/.profile
-### END STRIPE
 
-### BEGIN HENSON
-export PATH="/Users/ajohnson/stripe/henson/bin:$PATH"
-### END HENSON
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
