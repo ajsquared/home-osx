@@ -8,7 +8,7 @@ ZSH_THEME="dst"
 ENABLE_CORRECTION="true"
 unsetopt listbeep
 
-plugins=(git brew git-extras osx sudo tmux zsh-syntax-highlighting)
+plugins=(git brew git-extras osx sudo tmux zsh-syntax-highlighting gradle)
 
 source $ZSH/oh-my-zsh.sh
 
