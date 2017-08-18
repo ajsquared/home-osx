@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package yaml-mode puppet-mode ag helm-ag js2-mode thrift))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package yaml-mode puppet-mode ag helm-ag js2-mode thrift zenburn-theme))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -46,7 +46,7 @@
 (setq default-directory "~/")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(load-theme 'apropospriate-dark t)
+(load-theme 'zenburn t)
 (when (and (window-system) (eq system-type 'darwin))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH")
