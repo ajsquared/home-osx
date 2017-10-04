@@ -24,3 +24,4 @@ tmux
 wget
 zsh
 reattach-to-user-namespace
+golang
