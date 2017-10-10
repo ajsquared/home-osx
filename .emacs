@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package yaml-mode puppet-mode ag helm-ag js2-mode thrift))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package yaml-mode puppet-mode ag helm-ag js2-mode thrift json-mode))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -70,6 +70,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 ;; Derived mode for bazel files
 (define-derived-mode bazel-mode python-mode "Bazel")
 (add-to-list 'auto-mode-alist '("WORKSPACE" . bazel-mode))
