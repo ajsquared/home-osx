@@ -34,3 +34,4 @@
 
 [core]
 	preloadindex = true
+	excludesfile = ~/.gitignore
