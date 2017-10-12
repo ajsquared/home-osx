@@ -105,3 +105,6 @@ airflow
 .terraform.d
 .coursier
 url
+.idea
+*.iml
+.gradletasknamecache
