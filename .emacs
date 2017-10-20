@@ -67,8 +67,8 @@
 (bar-cursor-mode 1)
 (autopair-global-mode 1)
 (powerline-default-theme)
-(add-to-list 'auto-mode-alist '("\\.markdown" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.markdown" . gfm-mode))
+(add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 ;; Derived mode for bazel files
@@ -118,6 +118,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-git-executable "/usr/local/bin/git")
 (setq vc-follow-symlinks t)
+(setq markdown-command "pandoc --from markdown_github --to html --standalone")
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
