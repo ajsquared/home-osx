@@ -118,7 +118,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 (setq magit-git-executable "/usr/local/bin/git")
 (setq vc-follow-symlinks t)
-(setq markdown-command "pandoc --from markdown_github --to html --standalone")
+(setq markdown-command "pandoc --from gfm --to html")
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)

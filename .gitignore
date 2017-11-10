@@ -108,3 +108,4 @@ url
 .idea
 *.iml
 .gradletasknamecache
+out/
