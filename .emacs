@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile cider ac-cider ensime flycheck-package yaml-mode puppet-mode ag helm-ag js2-mode thrift json-mode))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -28,9 +28,6 @@
 (require 'helm-files)
 (require 'helm-grep)
 (require 'ac-helm)
-(require 'cider)
-(require 'cider-eldoc)
-(require 'ac-cider)
 (require 'helm-descbinds)
 (require 'functions)
 (require 'keyboard-shortcuts)
@@ -69,13 +66,7 @@
 (powerline-default-theme)
 (add-to-list 'auto-mode-alist '("\\.markdown" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
-(add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
-;; Derived mode for bazel files
-(define-derived-mode bazel-mode python-mode "Bazel")
-(add-to-list 'auto-mode-alist '("WORKSPACE" . bazel-mode))
-(add-to-list 'auto-mode-alist '("BUILD" . bazel-mode))
-(add-to-list 'auto-mode-alist '("\\.bzl" . bazel-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
@@ -160,9 +151,6 @@
 (setq org-blank-before-new-entry '((heading . nil) (plain-list-item . auto)))
 (setq org-export-with-LaTeX-fragments t)
 (setq org-enforce-todo-dependencies t)
-
-;;; Configure CIDER
-(setq nrepl-hide-special-buffers t)
 
 ;;; Start the server
 (server-start)
