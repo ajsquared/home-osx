@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode gradle-mode))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -32,7 +32,7 @@
 (require 'functions)
 (require 'keyboard-shortcuts)
 (require 'mode-hooks)
-(require 'gradle-mode)
+(require 'groovy-mode)
 
 ;;; Set frame title
 (setq frame-title-format
@@ -68,7 +68,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.gradle" . gradle-mode))
+(add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
