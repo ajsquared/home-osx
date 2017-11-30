@@ -38,10 +38,6 @@
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (local-set-key (kbd "M-.") 'godef-jump)
   (go-eldoc-setup))
-(defun js-setup()
-  (setq tab-width 2)
-  (setq js-indent-level 2)
-  (setq js2-basic-offset 2))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -53,7 +49,6 @@
 (add-hook 'org-finalize-agenda-hook 'org-agenda-setup)
 (add-hook 'go-mode-hook 'go-setup)
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
-(add-hook 'js2-mode-hook 'js-setup)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 (provide 'mode-hooks)
