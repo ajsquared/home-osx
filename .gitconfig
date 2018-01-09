@@ -25,6 +25,7 @@
     prom = pull --rebase --stat origin master
     s = status
     unstage = reset
+    grim = rebase -i master
 [merge]
     tool = ediff
 [mergetool "ediff"]
