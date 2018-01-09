@@ -31,8 +31,7 @@
 [mergetool "ediff"]
     cmd = emacsclient -a \"\" --eval \"(ediff-merge-files-with-ancestor \\\"$LOCAL\\\" \\\"$REMOTE\\\" \\\"$BASE\\\" nil \\\"$MERGED\\\")\"
 [push]
-	default = simple
-
+    default = simple
 [core]
-	preloadindex = true
-	excludesfile = ~/.gitignore
+    preloadindex = true
+    excludesfile = ~/.gitignore
