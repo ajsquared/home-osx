@@ -65,6 +65,7 @@
 (bar-cursor-mode 1)
 (autopair-global-mode 1)
 (powerline-default-theme)
+(global-git-commit-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
