@@ -1,10 +1,4 @@
 ---
-~/stripe:
-  name: Andrew Johnson
-  email: ajohnson@stripe.com
 ~/:
-  name: Andrew Johnson
-  email: andrew@andrewjamesjohnson.com
-~/stripe/hadoop:
   name: Andrew Johnson
   email: andrew@andrewjamesjohnson.com
