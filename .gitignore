@@ -55,7 +55,6 @@ VirtualBox VMs
 .ant
 .aws
 .dbvis
-.etsync
 .gem
 .gpg-agent-info
 .gradle
@@ -75,7 +74,6 @@ Google Drive
 Snapshots
 development
 *.pem
-etsync.sh
 go
 .oracle_jre_usage
 .emacs.d/recentf
@@ -84,13 +82,9 @@ go
 .bundle
 .history
 .rbenv
-.stripe-repos.sh
 .vagrant.d/
-Dropbox (Stripe)/
-stripe/
 .pgpass
 .psql_history
-.stripe
 /.pry_history
 .pex
 Dropbox (Personal)
