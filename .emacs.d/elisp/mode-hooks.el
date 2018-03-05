@@ -32,7 +32,7 @@
     (local-set-key (kbd "C-x C-k") 'server-edit)))
 (defun go-setup ()
   (setq tab-width 4)
-  (setq gofmt-command "gofmt")
+  (setq gofmt-command "goimports")
   (add-hook 'before-save-hook 'gofmt-before-save)
   (setq compile-command "go build -v && go test -v && go vet")
   (define-key (current-local-map) "\C-c\C-c" 'compile)
