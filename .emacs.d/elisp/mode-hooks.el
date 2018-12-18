@@ -1,7 +1,9 @@
 (defun python-setup ()
   (setq tab-width 4)
   (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))
-  (flycheck-mode))
+  (setq flycheck-checker 'python-flake8)
+  (flycheck-mode)
+  (lsp))
 (defun elisp-setup ()
   (eldoc-mode 1)
   (define-key (current-local-map) "\C-c\C-c" 'byte-recompile-directory))
@@ -50,5 +52,7 @@
 (add-hook 'go-mode-hook 'go-setup)
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'java-mode-hook 'lsp)
+(add-hook 'sh-mode 'lsp)
 
 (provide 'mode-hooks)

@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode apropospriate-theme popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh bazel-mode))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -33,6 +33,8 @@
 (require 'keyboard-shortcuts)
 (require 'mode-hooks)
 (require 'groovy-mode)
+(require 'lsp)
+(require 'lsp-clients)
 
 ;;; Set frame title
 (setq frame-title-format
@@ -70,6 +72,8 @@
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
+(add-to-list 'auto-mode-alist '("\\BUILD" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\WORKSPACE" . bazel-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
@@ -113,6 +117,7 @@
 (setq magit-git-executable "/usr/local/bin/git")
 (setq vc-follow-symlinks t)
 (setq markdown-command "pandoc --from gfm --to html")
+(setq lsp-response-timeout 30)
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
