@@ -24,6 +24,8 @@
 (global-set-key (kbd "C-c p s") 'helm-projectile-switch-project)
 (global-set-key (kbd "C-c a") 'helm-ag)
 (global-set-key (kbd "C-c p l") 'package-list-packages)
+(global-set-key (kbd "M-.") 'lsp-find-definition)
+(global-set-key (kbd "M-?") 'lsp-find-references)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
