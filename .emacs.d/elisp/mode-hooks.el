@@ -56,5 +56,6 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'java-mode-hook 'lsp)
 (add-hook 'sh-mode 'lsp)
+(add-hook 'lsp-mode-hook 'lsp-ui-mode)
 
 (provide 'mode-hooks)

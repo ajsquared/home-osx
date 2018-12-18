@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh bazel-mode material-theme auto-virtualenvwrapper))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode material-theme auto-virtualenvwrapper))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -35,6 +35,7 @@
 (require 'groovy-mode)
 (require 'lsp)
 (require 'lsp-clients)
+(require 'lsp-ui)
 (require 'auto-virtualenvwrapper)
 
 ;;; Set frame title
@@ -118,7 +119,11 @@
 (setq magit-git-executable "/usr/local/bin/git")
 (setq vc-follow-symlinks t)
 (setq markdown-command "pandoc --from gfm --to html")
+
+;;; Configure LSP
 (setq lsp-response-timeout 30)
+(setq lsp-ui-sideline-ignore-duplicate t)
+(setq lsp-auto-guess-root t)
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)
