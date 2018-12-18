@@ -2,6 +2,7 @@
   (setq tab-width 4)
   (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))
   (setq flycheck-checker 'python-flake8)
+  (setq flycheck-flake8rc "setup.cfg")
   (flycheck-mode)
   (lsp))
 (defun elisp-setup ()
