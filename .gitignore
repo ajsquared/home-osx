@@ -104,3 +104,4 @@ url
 .gradletasknamecache
 out/
 .ijwb
+.venv
