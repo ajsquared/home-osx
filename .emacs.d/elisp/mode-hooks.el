@@ -42,6 +42,20 @@
   (define-key (current-local-map) "\C-c\C-c" 'compile)
   (local-set-key (kbd "M-.") 'godef-jump)
   (go-eldoc-setup))
+(defun projectile-switch-project-setup ()
+  (projectile-invalidate-cache nil))
+(defun projectile-init-setup ()
+  (mapc (lambda (project-root)
+          (remhash project-root projectile-project-type-cache)
+          (remhash project-root projectile-projects-cache)
+          (remhash project-root projectile-projects-cache-time)
+          (when projectile-verbose
+            (message "Invalidated Projectile cache for %s."
+                     (propertize project-root 'face 'font-lock-keyword-face)))
+          (when (fboundp 'recentf-cleanup)
+            (recentf-cleanup)))
+        (hash-table-keys projectile-projects-cache))
+  (projectile-serialize-cache))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -57,5 +71,7 @@
 (add-hook 'java-mode-hook 'lsp)
 (add-hook 'sh-mode 'lsp)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
+(add-hook 'projectile-after-switch-project-hook 'projectile-switch-project-setup)
+(add-hook 'after-init-hook 'projectile-init-setup)
 
 (provide 'mode-hooks)
