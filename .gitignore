@@ -105,3 +105,4 @@ url
 out/
 .ijwb
 .venv
+.emacs.d/.lsp-session-v1
