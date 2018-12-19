@@ -35,6 +35,7 @@
 (require 'groovy-mode)
 (require 'lsp)
 (require 'lsp-clients)
+(require 'lsp-java)
 (require 'lsp-ui)
 (require 'auto-virtualenvwrapper)
 
