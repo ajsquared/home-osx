@@ -56,6 +56,10 @@
             (recentf-cleanup)))
         (hash-table-keys projectile-projects-cache))
   (projectile-serialize-cache))
+(defun java-setup ()
+  (lsp)
+  (setq tab-width 2)
+  (setq c-basic-offset 2))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -68,7 +72,7 @@
 (add-hook 'go-mode-hook 'go-setup)
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'java-mode-hook 'lsp)
+(add-hook 'java-mode-hook 'java-setup)
 (add-hook 'sh-mode 'lsp)
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 (add-hook 'projectile-after-switch-project-hook 'projectile-switch-project-setup)

@@ -108,3 +108,4 @@ out/
 .emacs.d/.lsp-session-v1
 .emacs.d/workspace
 .emacs.d/eclipse.jdt.ls
+.\#*
