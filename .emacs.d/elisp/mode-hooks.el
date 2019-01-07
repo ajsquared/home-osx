@@ -60,6 +60,10 @@
   (lsp)
   (setq tab-width 2)
   (setq c-basic-offset 2))
+(defun c-setup ()
+  (lsp)
+  (setq tab-width 2)
+  (setq c-basic-offset 2))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -77,5 +81,6 @@
 (add-hook 'lsp-mode-hook 'lsp-ui-mode)
 (add-hook 'projectile-after-switch-project-hook 'projectile-switch-project-setup)
 (add-hook 'after-init-hook 'projectile-init-setup)
+(add-hook 'c-mode-hook 'c-setup)
 
 (provide 'mode-hooks)
