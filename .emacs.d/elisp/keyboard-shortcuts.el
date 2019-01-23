@@ -2,6 +2,7 @@
 (global-set-key (kbd "C-x C-r") 'find-alternative-file-with-sudo)
 (global-set-key (kbd "C-x C-k") 'kill-this-buffer)
 (global-set-key (kbd "C-x v") 'magit-status)
+(global-set-key (kbd "C-x f") 'magit-log-buffer-file)
 (global-set-key (kbd "C-c r") 'replace-string)
 (global-set-key (kbd "C-c s") 'isearch-forward)
 (global-set-key (kbd "C-z") 'undo)
