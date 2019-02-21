@@ -109,3 +109,4 @@ out/
 .emacs.d/workspace
 .emacs.d/eclipse.jdt.ls
 .\#*
+/.emacs.d/transient/history.el
