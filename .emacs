@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode solarized-theme auto-virtualenvwrapper ccls))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode solarized-theme auto-virtualenvwrapper ccls protobuf-mode))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)

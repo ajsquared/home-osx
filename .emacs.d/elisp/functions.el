@@ -54,4 +54,14 @@
                 (let ((mark-even-if-inactive transient-mark-mode))
                   (indent-region (region-beginning) (region-end) nil))))))
 
+(defun use-pay-server-rubocop ()
+  (let* ((root (locate-dominating-file
+                (or (buffer-file-name) default-directory)
+                "scripts/bin/rubocop"))
+         (rubocop (and root
+                       (expand-file-name "scripts/bin/rubocop"
+                                         root))))
+    (when (and rubocop (file-executable-p rubocop))
+      (setq-local flycheck-ruby-rubocop-executable rubocop))))
+
 (provide 'functions)

@@ -64,6 +64,9 @@
   (lsp)
   (setq tab-width 2)
   (setq c-basic-offset 2))
+(defun ruby-setup ()
+  (flycheck-mode)
+  (add-hook 'flycheck-mode-hook #'use-pay-server-rubocop))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
@@ -82,5 +85,6 @@
 (add-hook 'projectile-after-switch-project-hook 'projectile-switch-project-setup)
 (add-hook 'after-init-hook 'projectile-init-setup)
 (add-hook 'c-mode-hook 'c-setup)
+(add-hook 'ruby-mode-hook 'ruby-setup)
 
 (provide 'mode-hooks)
