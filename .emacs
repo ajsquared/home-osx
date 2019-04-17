@@ -8,7 +8,7 @@
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode solarized-theme auto-virtualenvwrapper ccls protobuf-mode))
+(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode solarized-theme auto-virtualenvwrapper ccls protobuf-mode rg dumb-jump))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -39,6 +39,7 @@
 (require 'lsp-ui)
 (require 'auto-virtualenvwrapper)
 (require 'ccls)
+(require 'rg)
 
 ;;; Set frame title
 (setq frame-title-format
@@ -121,6 +122,8 @@
 (setq magit-git-executable "/usr/local/bin/git")
 (setq vc-follow-symlinks t)
 (setq markdown-command "pandoc --from gfm --to html")
+(setq rg-executable "/usr/local/bin/rg")
+(setq dumb-jump-force-searcher 'rg)
 
 ;;; Configure LSP
 (setq lsp-response-timeout 30)
@@ -147,7 +150,6 @@
 (setq helm-move-to-line-cycle-in-source t)
 (setq ido-use-virtual-buffers t)
 (setq helm-buffers-fuzzy-matching t)
-(setq helm-ag-insert-at-point 'symbol)
 (setq recentf-exclude
       '("COMMIT_EDITMSG" "\\.emacs\\.d/elpa"))
 

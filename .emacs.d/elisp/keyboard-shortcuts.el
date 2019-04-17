@@ -24,7 +24,7 @@
 (global-set-key (kbd "C-;") 'ac-complete-with-helm)
 (global-set-key (kbd "C-c p h") 'helm-projectile)
 (global-set-key (kbd "C-c p s") 'helm-projectile-switch-project)
-(global-set-key (kbd "C-c a") 'helm-ag-project-root)
+(global-set-key (kbd "C-c a") 'rg-project)
 (global-set-key (kbd "C-c p l") 'package-list-packages)
 (global-set-key (kbd "M-.") 'lsp-ui-peek-find-definitions)
 (global-set-key (kbd "M-?") 'lsp-ui-peek-find-references)

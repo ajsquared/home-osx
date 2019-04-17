@@ -66,6 +66,9 @@
   (setq c-basic-offset 2))
 (defun ruby-setup ()
   (flycheck-mode)
+  (dumb-jump-mode)
+  (define-key (current-local-map) (kbd "M-.") 'dumb-jump-go)
+  (define-key (current-local-map) (kbd "M-?") 'dumb-jump-back)
   (add-hook 'flycheck-mode-hook #'use-pay-server-rubocop))
 
 ;;; Mode hooks
