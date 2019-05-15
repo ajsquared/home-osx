@@ -89,6 +89,7 @@
 (add-hook 'projectile-after-switch-project-hook 'projectile-switch-project-setup)
 (add-hook 'after-init-hook 'projectile-init-setup)
 (add-hook 'c-mode-hook 'c-setup)
+(add-hook 'c++-mode-hook 'c-setup)
 (add-hook 'ruby-mode-hook 'ruby-setup)
 
 (provide 'mode-hooks)
