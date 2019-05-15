@@ -69,7 +69,8 @@
   (dumb-jump-mode)
   (define-key (current-local-map) (kbd "M-.") 'dumb-jump-go)
   (define-key (current-local-map) (kbd "M-?") 'dumb-jump-back)
-  (add-hook 'flycheck-mode-hook #'use-pay-server-rubocop))
+  (add-hook 'flycheck-mode-hook #'use-pay-server-rubocop)
+  (setq ruby-insert-encoding-magic-comment nil))
 
 ;;; Mode hooks
 (add-hook 'python-mode-hook 'python-setup)
