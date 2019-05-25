@@ -77,8 +77,9 @@
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
-(add-to-list 'auto-mode-alist '("\\BUILD" . bazel-mode))
-(add-to-list 'auto-mode-alist '("\\WORKSPACE" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-mode))
+(add-to-list 'auto-mode-alist '("\\.dlog" . prolog-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
