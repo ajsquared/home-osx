@@ -20,6 +20,8 @@
     lg = log --decorate -p
     lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
     pom = push origin master
+    po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+    fpush = "!git push -f origin \"$(git rev-parse --abbrev-ref HEAD)\""
     pullr = pull --rebase
     rpull = pull --rebase --stat
     prom = pull --rebase --stat origin master
