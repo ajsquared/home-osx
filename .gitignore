@@ -110,3 +110,4 @@ out/
 .emacs.d/eclipse.jdt.ls
 .\#*
 /.emacs.d/transient/history.el
+.vscode/.vs_code_bazel_build/
