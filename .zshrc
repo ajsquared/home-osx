@@ -8,7 +8,7 @@ ZSH_THEME=""
 ENABLE_CORRECTION="true"
 unsetopt listbeep
 
-plugins=(git brew git-extras osx sudo tmux gradle)
+plugins=(git brew git-extras osx sudo tmux gradle pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
