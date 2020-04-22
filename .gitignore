@@ -114,4 +114,4 @@ out/
 .classpath
 .project
 .settings
-ci/remote-platform.bzl
+remote-platform.bzl
