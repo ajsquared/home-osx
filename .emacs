@@ -42,6 +42,7 @@
 (scroll-bar-mode -1)
 (load-theme 'atom-one-dark t)
 (when (and (window-system) (eq system-type 'darwin))
+  (setq exec-path-from-shell-arguments '("-l"))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH")
   (set-face-attribute 'default nil :font "Monaco-14")
