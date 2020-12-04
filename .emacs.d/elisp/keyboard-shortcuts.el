@@ -30,6 +30,7 @@
 (global-set-key (kbd "C-c b c") 'copy-bazel-build-target-name)
 (global-set-key (kbd "C-c b b") 'build-current-bazel-target)
 (global-set-key (kbd "C-c b t") 'test-current-bazel-target)
+(global-set-key (kbd "C-c f") 'zoolander-format)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)

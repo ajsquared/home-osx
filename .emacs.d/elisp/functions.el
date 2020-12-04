@@ -98,4 +98,9 @@
   (interactive)
   (run-bazel-on-target "test"))
 
+(defun zoolander-format ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (shell-command "./dev/format-build && ./dev/format-scala")))
+
 (provide 'functions)
