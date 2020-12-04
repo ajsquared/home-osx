@@ -64,4 +64,38 @@
     (when (and rubocop (file-executable-p rubocop))
       (setq-local flycheck-ruby-rubocop-executable rubocop))))
 
+(defun open-bazel-build-for-file ()
+  (interactive)
+  (let ((fname (file-name-nondirectory (buffer-file-name))))
+    (find-file-existing "BUILD")
+    (search-forward fname nil t nil)))
+
+(defun get-bazel-build-target-name ()
+  (unless (looking-at-p ".*(.*\n.*name")
+    (re-search-backward "^.*(.*\n.*name" nil t nil))
+  (re-search-forward ".*name ?=" nil t nil)
+  (let* (
+        (dirname (replace-regexp-in-string "/$" ""
+                                           (replace-regexp-in-string (projectile-project-root) ""
+                                                                     (file-name-directory (buffer-file-name)))))
+        (current-line (thing-at-point 'line t))
+        (target-name (replace-regexp-in-string ".*name ?= ?\"\\(.*\\)\".*\n" "\\1" current-line)))
+    (message "//%s:%s" dirname target-name)))
+
+(defun copy-bazel-build-target-name ()
+  (interactive)
+  (kill-new (get-bazel-build-target-name)))
+
+(defun run-bazel-on-target (command)
+  (let ((default-directory (projectile-project-root)))
+    (shell-command (concat "bazel " command " " (get-bazel-build-target-name)))))
+
+(defun build-current-bazel-target ()
+  (interactive)
+  (run-bazel-on-target "build"))
+
+(defun test-current-bazel-target ()
+  (interactive)
+  (run-bazel-on-target "test"))
+
 (provide 'functions)

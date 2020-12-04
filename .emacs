@@ -2,13 +2,8 @@
 
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
-;;; Initialize package system
-(package-initialize)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-
-(setq package-selected-packages '(maxframe bar-cursor auctex auto-complete autopair dropdown-list magit markdown-mode popup powerline python-mode rainbow-delimiters yasnippet go-autocomplete go-eldoc go-mode exec-path-from-shell helm helm-descbinds ac-helm projectile helm-projectile flycheck-package yaml-mode puppet-mode ag helm-ag thrift json-mode groovy-mode terraform-mode ensime lsp-go lsp-html lsp-java lsp-mode lsp-python lsp-ruby lsp-sh lsp-ui bazel-mode solarized-theme auto-virtualenvwrapper ccls protobuf-mode rg dumb-jump))
+(setq package-selected-packages '(atom-one-dark-theme yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -32,13 +27,7 @@
 (require 'functions)
 (require 'keyboard-shortcuts)
 (require 'mode-hooks)
-(require 'groovy-mode)
-(require 'lsp)
-(require 'lsp-clients)
-(require 'lsp-java)
-(require 'lsp-ui)
 (require 'auto-virtualenvwrapper)
-(require 'ccls)
 (require 'rg)
 
 ;;; Set frame title
@@ -51,7 +40,7 @@
 (setq default-directory "~/")
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(load-theme 'solarized-light t)
+(load-theme 'atom-one-dark t)
 (when (and (window-system) (eq system-type 'darwin))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOPATH")
@@ -76,10 +65,9 @@
 (add-to-list 'auto-mode-alist '("\\.markdown" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.md" . gfm-mode))
 (add-to-list 'auto-mode-alist '("\\.json" . json-mode))
-(add-to-list 'auto-mode-alist '("\\.gradle" . groovy-mode))
-(add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-mode))
-(add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-mode))
-(add-to-list 'auto-mode-alist '("\\.dlog" . prolog-mode))
+(add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
+(add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-workspace-mode))
+(add-to-list 'auto-mode-alist '("\\.sky" . bazel-starlark-mode))
 
 ;;; General variable customization
 (setq initial-major-mode 'text-mode)
@@ -125,14 +113,6 @@
 (setq markdown-command "pandoc --from gfm --to html")
 (setq rg-executable "/usr/local/bin/rg")
 (setq dumb-jump-force-searcher 'rg)
-
-;;; Configure LSP
-(setq lsp-response-timeout 30)
-(setq lsp-ui-sideline-ignore-duplicate t)
-(setq lsp-auto-guess-root t)
-(setq ccls-executable "/usr/local/bin/ccls")
-(setq ccls-sem-highlight-method 'font-lock)
-(ccls-use-default-rainbow-sem-highlight)
 
 ;;; Configure helm
 (setq helm-scroll-amount 4)

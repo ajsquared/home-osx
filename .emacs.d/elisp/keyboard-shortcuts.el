@@ -26,8 +26,10 @@
 (global-set-key (kbd "C-c p s") 'helm-projectile-switch-project)
 (global-set-key (kbd "C-c a") 'rg-project)
 (global-set-key (kbd "C-c p l") 'package-list-packages)
-(global-set-key (kbd "M-.") 'lsp-ui-peek-find-definitions)
-(global-set-key (kbd "M-?") 'lsp-ui-peek-find-references)
+(global-set-key (kbd "C-c b f") 'open-bazel-build-for-file)
+(global-set-key (kbd "C-c b c") 'copy-bazel-build-target-name)
+(global-set-key (kbd "C-c b b") 'build-current-bazel-target)
+(global-set-key (kbd "C-c b t") 'test-current-bazel-target)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
