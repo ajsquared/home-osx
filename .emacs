@@ -3,7 +3,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 
-(setq package-selected-packages '(atom-one-dark-theme yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm))
+(setq package-selected-packages '(yasnippet git-commit go-mode hcl-mode helm helm-core markdown-mode projectile sbt-mode scala-mode atom-one-dark-theme yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
