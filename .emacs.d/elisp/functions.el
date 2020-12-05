@@ -64,6 +64,13 @@
     (when (and rubocop (file-executable-p rubocop))
       (setq-local flycheck-ruby-rubocop-executable rubocop))))
 
+(defun background-process (command)
+  (let ((bufname (generate-new-buffer "*Background Process Output*")))
+    (with-current-buffer bufname
+      (special-mode))
+    (internal-temp-output-buffer-show bufname)
+    (start-process-shell-command "background-process" bufname command)))
+
 (defun open-bazel-build-for-file ()
   (interactive)
   (let ((fname (file-name-nondirectory (buffer-file-name))))
@@ -88,7 +95,7 @@
 
 (defun run-bazel-on-target (command)
   (let ((default-directory (projectile-project-root)))
-    (shell-command (concat "bazel " command " " (get-bazel-build-target-name)))))
+    (background-process (concat "bazel " command " " (get-bazel-build-target-name)))))
 
 (defun build-current-bazel-target ()
   (interactive)
@@ -101,6 +108,6 @@
 (defun zoolander-format ()
   (interactive)
   (let ((default-directory (projectile-project-root)))
-    (shell-command "./dev/format-build && ./dev/format-scala")))
+    (background-process "./dev/format-build && ./dev/format-scala")))
 
 (provide 'functions)
