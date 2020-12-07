@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: new scala class 
+# key: newclass
+# --
+package `(replace-regexp-in-string "/" "." (replace-regexp-in-string "^.*/com" "com" (replace-regexp-in-string "/$" "" (replace-regexp-in-string (projectile-project-root) "" (file-name-directory (buffer-file-name))))))`
+
+class `(file-name-base (buffer-file-name))` {
+  $0
+}

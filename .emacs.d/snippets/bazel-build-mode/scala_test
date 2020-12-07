@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: scala_test
+# key: nst
+# --
+
+scala_test(
+    name = "$1",
+    srcs = [$2],
+    visibility = ["//visibility:public"],
+    deps = [$0],
+)

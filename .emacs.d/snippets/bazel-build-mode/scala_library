@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: scala_library 
+# key: nsl
+# --
+
+scala_library(
+    name = "$1",
+    srcs = [$2],
+    visibility = ["//visibility:public"],
+    exports = [],
+    deps = [$0],
+)
