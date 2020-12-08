@@ -32,6 +32,7 @@
 (global-set-key (kbd "C-c b t") 'test-current-bazel-target)
 (global-set-key (kbd "C-c f") 'zoolander-format)
 (global-set-key (kbd "C-c y") 'yas-expand-from-trigger-key)
+(global-set-key (kbd "C-c p n") 'neotree-toggle)
 
 (define-key 'help-command (kbd "C-f") 'helm-apropos)
 (define-key 'help-command (kbd "r") 'helm-info-emacs)
