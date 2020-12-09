@@ -2,7 +2,7 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 ;;; Set required packages
-(setq package-selected-packages '(all-the-icons neotree yasnippet git-commit go-mode hcl-mode helm helm-core markdown-mode projectile sbt-mode scala-mode atom-one-dark-theme yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm))
+(setq package-selected-packages '(doom-themes blacken all-the-icons neotree yasnippet git-commit go-mode hcl-mode helm helm-core markdown-mode projectile sbt-mode scala-mode yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm))
 
 ;;; Suppress redefinition warnings before anything is loaded
 (setq ad-redefinition-action 'accept)
@@ -42,7 +42,7 @@
 (scroll-bar-mode -1)
 (menu-bar-mode nil)
 (global-hl-line-mode t)
-(load-theme 'atom-one-dark t)
+(load-theme 'doom-one t)
 (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
 (setq neo-smart-open t)
 (when (and (window-system) (eq system-type 'darwin))
@@ -161,16 +161,3 @@
 
 ;;; Start the server
 (server-start)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(blacken all-the-icons neotree yasnippet git-commit go-mode hcl-mode helm helm-core markdown-mode projectile sbt-mode scala-mode atom-one-dark-theme yaml-mode thrift terraform-mode rg rainbow-delimiters python-mode puppet-mode protobuf-mode powerline maxframe magit json-mode helm-projectile helm-descbinds helm-ag helm-xref go-eldoc go-autocomplete flycheck-package exec-path-from-shell dumb-jump bazel-mode bar-cursor autopair auto-virtualenvwrapper auctex ag ac-helm)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
