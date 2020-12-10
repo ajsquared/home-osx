@@ -75,7 +75,7 @@
   (interactive)
   (let ((fname (file-name-nondirectory (buffer-file-name))))
     (find-file-existing "BUILD")
-    (beginning-of-buffer)
+    (goto-char (point-min))
     (search-forward fname nil t nil)))
 
 (defun get-bazel-build-target-name ()
