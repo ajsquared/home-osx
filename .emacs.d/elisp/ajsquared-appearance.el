@@ -55,11 +55,12 @@
   :config
   (bar-cursor-mode 1))
 
-;;; Enable powerline
-(use-package powerline
+;;; Enable spaceline
+(use-package spaceline
   :ensure t
   :config
-  (powerline-default-theme))
+  (spaceline-emacs-theme)
+  (spaceline-helm-mode))
 
 ;;; Enable rainbow delimiters
 (use-package rainbow-delimiters
