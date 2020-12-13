@@ -26,13 +26,7 @@
 (column-number-mode 1)
 
 ;;; Mac-specific UI settings
-(use-package exec-path-from-shell
-  :ensure t
-  :defer t)
-
 (when (and (window-system) (eq system-type 'darwin))
-  (setq exec-path-from-shell-arguments '("-l"))
-  (exec-path-from-shell-initialize)
   (set-face-attribute 'default nil :font "Monaco-14")
   (toggle-frame-maximized))
 
