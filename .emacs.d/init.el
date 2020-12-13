@@ -1,3 +1,14 @@
+;;; Reduce GC frequency during startup
+(setq gc-cons-threshold (* 50 1000 1000))
+
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "Emacs ready in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
 ;;; Initialize base package configuration
 (require 'package)
 
@@ -32,6 +43,10 @@
 
 ;;; Start the server
 (server-start)
+
+;;; Put GC threshold lower for interactive use
+(setq gc-cons-threshold (* 2 1000 1000))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
