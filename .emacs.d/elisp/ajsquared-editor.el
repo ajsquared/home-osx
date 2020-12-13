@@ -10,7 +10,6 @@
   :ensure t
   :diminish auto-revert-mode
   :custom
-  (magit-last-seen-setup-instructions "1.4.0")
   (magit-git-executable "/usr/local/bin/git")
   (vc-follow-symlinks t)
   (magit-auto-revert-mode)
@@ -35,7 +34,6 @@
 ;;; Enable yasnippet
 (use-package yasnippet
   :ensure t
-  :demand t
   :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
@@ -51,7 +49,6 @@
 ;;; Enable perspective
 (use-package perspective
   :ensure t
-  :demand t
   :config
   (persp-mode)
   (persp-turn-on-modestring))
@@ -59,7 +56,6 @@
 ;;; Enable projectile
 (use-package projectile
   :ensure t
-  :demand t
   :custom
   (projectile-enable-caching t)
   :config
@@ -86,7 +82,6 @@
 ;;; Enable helm
 (use-package helm
   :ensure t
-  :demand t
   :diminish
   :custom
   (helm-scroll-amount 4)
@@ -147,8 +142,6 @@
 
 (use-package helm-projectile
   :ensure t
-  :demand t
-  :after (helm projectile)
   :bind (("C-c p h" . helm-projectile)
          ("C-c p s" . helm-projectile-switch-project)))
 
