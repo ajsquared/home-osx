@@ -182,8 +182,7 @@
 ;;; Enable company-mode
 (use-package company
   :ensure t
-  :init
-  (add-hook 'prog-mode-hook #'company-mode))
+  :hook (prog-mode . company-mode))
 
 (use-package helm-company
   :ensure t

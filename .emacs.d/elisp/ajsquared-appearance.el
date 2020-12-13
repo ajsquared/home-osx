@@ -60,7 +60,6 @@
 ;;; Enable rainbow delimiters
 (use-package rainbow-delimiters
   :ensure t
-  :init
-  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (provide 'ajsquared-appearance)
