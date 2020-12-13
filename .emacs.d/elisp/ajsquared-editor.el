@@ -44,6 +44,14 @@
   :config
   (ac-config-default))
 
+;;; Enable perspective
+(use-package perspective
+  :ensure t
+  :demand t
+  :config
+  (persp-mode)
+  (persp-turn-on-modestring))
+
 ;;; Enable projectile
 (use-package projectile
   :ensure t
