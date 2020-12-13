@@ -8,12 +8,12 @@
 ;;; Enable magit
 (use-package magit
   :ensure t
-  :diminish magit-auto-revert-mode
+  :diminish auto-revert-mode
   :custom
   (magit-last-seen-setup-instructions "1.4.0")
   (magit-git-executable "/usr/local/bin/git")
   (vc-follow-symlinks t)
-  
+  (magit-auto-revert-mode)
   :bind (("C-x v" . magit-status)
          ("C-x f" . magit-log-buffer-file)
          ("C-x x" . magit-blame)))
