@@ -12,10 +12,6 @@
 
 (setq use-package-always-ensure t)
 
-;;; Suppress warnings before anything is loaded
-(setq ad-redefinition-action 'accept)
-(setq exec-path-from-shell-check-startup-files nil)
-
 ;;; Load custom configuration sub-modules
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (use-package ajsquared-appearance
