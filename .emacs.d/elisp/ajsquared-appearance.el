@@ -52,6 +52,7 @@
 ;;; Enable spaceline
 (use-package spaceline
   :ensure t
+  :defer 2
   :config
   (spaceline-emacs-theme)
   (spaceline-helm-mode))
