@@ -39,13 +39,6 @@
   (yas-global-mode 1)
   :bind (("C-c y" . yas-expand-from-trigger-key)))
 
-;;; Enable auto-complete
-(use-package auto-complete
-  :ensure t
-  :diminish
-  :config
-  (ac-config-default))
-
 ;;; Enable perspective
 (use-package perspective
   :ensure t
@@ -135,11 +128,6 @@
   :ensure t
   :after (helm))
 
-(use-package ac-helm
-  :ensure t
-  :after (auto-complete helm)
-  :bind (("C-;" . ac-complete-with-helm)))
-
 (use-package helm-projectile
   :ensure t
   :bind (("C-c p h" . helm-projectile)
@@ -190,6 +178,18 @@
 	(setq fname (concat "/sudo:root@localhost:" fname)))
       (find-alternate-file fname))))
 (bind-key "C-x C-r" 'find-alternative-file-with-sudo)
+
+;;; Enable company-mode
+(use-package company
+  :ensure t
+  :init
+  (add-hook 'prog-mode-hook #'company-mode))
+
+(use-package helm-company
+  :ensure t
+  :after (helm company)
+  :bind (:map company-mode-map
+              ("C-;" . helm-company)))
 
 ;;; Remap standard keys
 (bind-key "RET" 'newline-and-indent)
