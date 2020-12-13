@@ -189,7 +189,7 @@
 		       fname))
 	(setq fname (concat "/sudo:root@localhost:" fname)))
       (find-alternate-file fname))))
-(global-set-key (kbd "C-x C-r") 'find-alternative-file-with-sudo)
+(bind-key "C-x C-r" 'find-alternative-file-with-sudo)
 
 ;;; Remap standard keys
 (bind-key "RET" 'newline-and-indent)
