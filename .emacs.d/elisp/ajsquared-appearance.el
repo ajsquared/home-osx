@@ -36,6 +36,12 @@
   (set-face-attribute 'default nil :font "Monaco-14")
   (toggle-frame-maximized))
 
+;;; Enable diminish
+(use-package diminish
+  :ensure t
+  :config
+  (diminish 'subword-mode))
+
 ;;; Enable theme
 (use-package doom-themes
   :ensure t
@@ -45,6 +51,7 @@
 ;;; Enable bar cursor
 (use-package bar-cursor
   :ensure t
+  :diminish
   :config
   (bar-cursor-mode 1))
 

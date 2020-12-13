@@ -8,6 +8,7 @@
 ;;; Enable magit
 (use-package magit
   :ensure t
+  :diminish magit-auto-revert-mode
   :custom
   (magit-last-seen-setup-instructions "1.4.0")
   (magit-git-executable "/usr/local/bin/git")
@@ -25,6 +26,7 @@
 ;;; Enable autopair
 (use-package autopair
   :ensure t
+  :diminish
   :custom
   (autopair-autowrap t)
   :config
@@ -34,6 +36,7 @@
 (use-package yasnippet
   :ensure t
   :demand t
+  :diminish yas-minor-mode
   :config
   (yas-global-mode 1)
   :bind (("C-c y" . yas-expand-from-trigger-key)))
@@ -41,6 +44,7 @@
 ;;; Enable auto-complete
 (use-package auto-complete
   :ensure t
+  :diminish
   :config
   (ac-config-default))
 
@@ -83,6 +87,7 @@
 (use-package helm
   :ensure t
   :demand t
+  :diminish
   :custom
   (helm-scroll-amount 4)
   (helm-quick-update t)
