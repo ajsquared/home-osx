@@ -160,15 +160,14 @@ The next thing I will configure is the UI and appearance of Emacs.
 *** OS X
 Emacs needs a few tweaks to work properly in OS X.
 
-First I want to remap the modifier keys so my muscle memory lines up. Then, if I am running GUI Emacs, set the font and maximize the window by default:
+First I want to remap the modifier keys so my muscle memory lines up. Then, if I am running GUI Emacs, I want to set a nicer font and maximize the window:
 #+BEGIN_SRC emacs-lisp
 (when (eq system-type 'darwin)
   (setq mac-control-modifier 'meta)
   (setq mac-command-modifier 'control)
   (when (window-system)
-    (set-face-attribute 'default nil :font "Monaco-14")
-    (message "hello world")
-    (toggle-frame-maximized)))
+    (add-to-list 'default-frame-alist '(fullscreen . maximized))
+    (set-face-attribute 'default nil :font "Monaco-14")))
 #+END_SRC
 *** Basic UI Tweaks
 Next I make some basic tweaks to the UI.
