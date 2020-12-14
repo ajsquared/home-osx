@@ -118,3 +118,4 @@ remote-platform.bzl
 /.emacs.d/.dap-breakpoints
 .last-package-update-day
 .abbrev
+README.el
