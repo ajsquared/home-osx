@@ -606,7 +606,7 @@ Use black for formatting Python code:
 (use-package blacken
   :ensure t
   :custom
-  (blacken-executable (concat (projectile-project-root) "vendor3/bin/black"))
+  (blacken-executable "/Users/ajohnson/.pyenv/shims/black")
   :hook (python-mode . blacken-mode))
 #+END_SRC
 *** Scala
