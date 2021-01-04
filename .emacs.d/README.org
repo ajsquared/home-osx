@@ -160,12 +160,19 @@ The next thing I will configure is the UI and appearance of Emacs.
 *** OS X
 Emacs needs a few tweaks to work properly in OS X.
 
-First I want to remap the modifier keys so my muscle memory lines up. Then, if I am running GUI Emacs, I want to set a nicer font and maximize the window:
+First I want to remap the modifier keys so my muscle memory lines up. Then, if I am running GUI Emacs, I want to set a nicer font and maximize the window. Finally, I have to explicitly load the =PATH= environment variable as GUI Emacs does not load that properly otherwise. I need the exec-path-from-shell package for this.
 #+BEGIN_SRC emacs-lisp
+(use-package exec-path-from-shell
+  :ensure t
+  :defer t
+  :custom
+  (exec-path-from-shell-arguments '("-l")))
+
 (when (eq system-type 'darwin)
   (setq mac-control-modifier 'meta)
   (setq mac-command-modifier 'control)
   (when (window-system)
+    (exec-path-from-shell-initialize)
     (add-to-list 'default-frame-alist '(fullscreen . maximized))
     (set-face-attribute 'default nil :font "Monaco-14")))
 #+END_SRC
@@ -583,6 +590,16 @@ Emacs doesn't have a good built-in mode for YAML either
 I use Emacs both for work and for personal projects. It is not uncommon for me to need specific customizations for work that aren't necessarily applicable for personal projects. I've grouped all these here so they're all in one place.
 
 This section is likely to contain snippets with hidden assumptions about the environment that may not be applicable anywhere beyond my work computer.
+*** Utilities
+Define a function for running processes in the background, outputting to a buffer:
+#+BEGIN_SRC emacs-lisp
+(defun background-process (command)
+  (let ((bufname (generate-new-buffer "*Background Process Output*")))
+    (with-current-buffer bufname
+      (special-mode))
+    (internal-temp-output-buffer-show bufname)
+    (start-process-shell-command "background-process" bufname command)))
+#+END_SRC
 *** Python Black
 Use black for formatting Python code:
 #+BEGIN_SRC emacs-lisp
@@ -625,13 +642,6 @@ When using Bazel for builds, define several helper functions for navigating and 
   (add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
   (add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-workspace-mode))
   (add-to-list 'auto-mode-alist '("\\.sky" . bazel-starlark-mode))
-  
-  (defun background-process (command)
-    (let ((bufname (generate-new-buffer "*Background Process Output*")))
-      (with-current-buffer bufname
-        (special-mode))
-      (internal-temp-output-buffer-show bufname)
-      (start-process-shell-command "background-process" bufname command)))
 
   (defun get-bazel-build-target-name ()
     (unless (looking-at-p ".*(.*\n.*name")
@@ -651,7 +661,7 @@ When using Bazel for builds, define several helper functions for navigating and 
 
   (defun run-bazel-on-target (command)
     (let ((default-directory (projectile-project-root)))
-      (background-process (concat "bazel " command " " (get-bazel-build-target-name)))))
+      (background-process (concat "./bazel " command " " (get-bazel-build-target-name)))))
 
   (defun build-current-bazel-target ()
     (interactive)
