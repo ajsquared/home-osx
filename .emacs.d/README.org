@@ -435,8 +435,7 @@ Then I use the dumb-jump package for navigating to symbols. I've never liked eta
   :custom
   (dumb-jump-force-searcher 'rg)
   :init
-  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
-  :after (rg))
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 #+END_SRC
 *** Completion
 Finally I want to enable good completion and fuzzy matching everywhere possible. Helm is the gold standard for this in Emacs. It provides fast completion and matching and integrates to basically everything.
