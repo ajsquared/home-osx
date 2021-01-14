@@ -312,6 +312,11 @@ And I have a custom function to enable opening the current file with sudo if it 
 (bind-key "C-x C-r" 'find-alternative-file-with-sudo)
 #+END_SRC
 
+Then I enable auto-revert-mode to automatically update files that change externally to Emacs (such as external formatters or git checkouts):
+#+BEGIN_SRC emacs-lisp
+(global-auto-revert-mode)
+#+END_SRC
+
 *** Git
 I use Magit for interacting with Git from Emacs. It is a very robust and featureful interface and remains one of the best interfaces to Git I have used.
 
@@ -319,11 +324,9 @@ Here I install Magit and enable some keybindings for it:
 #+BEGIN_SRC emacs-lisp
 (use-package magit
   :ensure t
-  :diminish auto-revert-mode
   :custom
   (magit-git-executable "/usr/local/bin/git")
   (vc-follow-symlinks t)
-  (magit-auto-revert-mode)
   :bind (("C-x v" . magit-status)
          ("C-x f" . magit-log-buffer-file)
          ("C-x x" . magit-blame)))
