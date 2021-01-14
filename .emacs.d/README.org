@@ -329,7 +329,7 @@ Here I install Magit and enable some keybindings for it:
   (vc-follow-symlinks t)
   :bind (("C-x v" . magit-status)
          ("C-x f" . magit-log-buffer-file)
-         ("C-x x" . magit-blame)))
+         ("C-x b" . magit-blame)))
 #+END_SRC
 
 I also enable git-commit-mode for better editing of commit messages:
