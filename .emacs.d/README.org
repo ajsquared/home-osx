@@ -620,20 +620,32 @@ Define a function to run custom code formatters:
     (background-process "./dev/format-build && ./dev/format-scala")))
 #+END_SRC
 
-For Scala, I want to have a keybinding for that custom formatter. I also want a keybinding to jump to the the Bazel build target for the current file:
+For Scala, I want to have a keybinding for that custom formatter. I also want a keybinding to jump to the the Bazel build target for the current file. I also have some convenience function to invoke Bazel build/test from a Scala file:
 #+BEGIN_SRC emacs-lisp
-(use-package scala-mode
-  :ensure t
-  :config
-  (defun open-bazel-build-for-file ()
-    (interactive)
-    (let ((fname (file-name-nondirectory (buffer-file-name))))
-      (find-file-existing "BUILD")
-      (goto-char (point-min))
-      (search-forward fname nil t nil)))
-  :bind (:map scala-mode-map
-              ("C-c f" . scala-bazel-format)
-              ("C-c b f" . open-bazel-build-for-file)))
+  (use-package scala-mode
+    :ensure t
+    :config
+    (defun open-bazel-build-for-file ()
+      (interactive)
+      (let ((fname (file-name-nondirectory (buffer-file-name))))
+        (find-file-existing "BUILD")
+        (goto-char (point-min))
+        (search-forward fname nil t nil)))
+    (defun bazel-build-for-file ()
+      (interactive)
+      (open-bazel-build-for-file)
+      (build-current-bazel-target)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+    (defun bazel-test-for-file ()
+      (interactive)
+      (open-bazel-build-for-file)
+      (test-current-bazel-target)
+      (switch-to-buffer (other-buffer (current-buffer) 1)))
+    :bind (:map scala-mode-map
+                ("C-c f" . scala-bazel-format)
+                ("C-c b f" . open-bazel-build-for-file)
+                ("C-c b b" . bazel-build-for-file)
+                ("C-c b t" . bazel-test-for-file)))
 #+END_SRC
 *** Bazel
 When using Bazel for builds, define several helper functions for navigating and running build targets:
