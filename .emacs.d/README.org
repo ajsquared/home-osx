@@ -424,11 +424,12 @@ I've added all-the-icons as well for a nicer looking tree view with icons.
 *** Searching and Navigation
 Now that I have some notion of a project, I want to be able to search across it. I use ripgrep on the command line, and the rg package is the Emacs interface to it:
 #+BEGIN_SRC emacs-lisp
-(use-package rg
-  :ensure t
-  :custom
-  (rg-executable "/usr/local/bin/rg")
-  :bind (("C-c a" . rg-project)))
+  (use-package rg
+    :ensure t
+    :custom
+    (rg-executable "/usr/local/bin/rg")
+    :bind (("C-c a" . rg-project)
+           ("C-c d" . rg-dwim-current-dir)))
 #+END_SRC
 
 Then I use the dumb-jump package for navigating to symbols. I've never liked etags, and dumb-jump gets most of the way to the same thing by searching with rg for the symbol at the cursor:
