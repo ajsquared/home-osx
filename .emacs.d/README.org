@@ -563,17 +563,19 @@ I use Auctex for editing LaTeX. I don't use LaTeX for much anymore, mainly just 
 *** Python
 Emacs has built-in Python support, but this package adds some niceties, including Python shell integration. I also want to customize autopair's behavior here and add a utility to automatically activate a virtualenv if one is found:
 #+BEGIN_SRC emacs-lisp
-(use-package python-mode
-  :ensure t
-  :defer t
-  :init
-  (add-hook 'python-mode-hook (lambda ()
-                              (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action)))))
+  (use-package python-mode
+    :ensure t
+    :defer t
+    :init
+    (add-hook 'python-mode-hook (lambda ()
+                                  (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))))
+    :bind (:map python-mode-map
+                  ("C-c f" . python-format)))
 
-(use-package auto-virtualenvwrapper
-  :ensure t
-  :hook (python-mode . auto-virtualenvwrapper-activate)
-  :after (python-mode))
+  (use-package auto-virtualenvwrapper
+    :ensure t
+    :hook (python-mode . auto-virtualenvwrapper-activate)
+    :after (python-mode))
 #+END_SRC
 *** Emacs Lisp
 Emacs is naturally good at editing Emacs Lisp, but I want to enable eldoc-mode for inline docs and add a keybinding to recompile the current directory:
@@ -604,13 +606,12 @@ Define a function for running processes in the background, outputting to a buffe
     (start-process-shell-command "background-process" bufname command)))
 #+END_SRC
 *** Python Black
-Use black for formatting Python code:
+Define a function to run custom code formatter:
 #+BEGIN_SRC emacs-lisp
-(use-package blacken
-  :ensure t
-  :custom
-  (blacken-executable "/Users/ajohnson/.pyenv/shims/black")
-  :hook (python-mode . blacken-mode))
+(defun python-format ()
+  (interactive)
+  (let ((default-directory (projectile-project-root)))
+    (background-process "./dev/pycheck --fix")))
 #+END_SRC
 *** Scala
 Define a function to run custom code formatters:
