@@ -221,10 +221,11 @@ Next enables font-lock (aka syntax highlighting) globally:
 (global-font-lock-mode t)
 #+END_SRC
 
-Then enable highlighting matching pairs of brackets:
+Then enable highlighting matching pairs of brackets and automatic insertion of matching pairs:
 #+BEGIN_SRC emacs-lisp
-(show-paren-mode)
-(setq show-paren-style 'parenthesis)
+  (show-paren-mode)
+  (setq show-paren-style 'parenthesis)
+  (electric-pair-mode 1)
 #+END_SRC
 
 Next enable the diminish package to hide some minor modes from the modeline that I don't find useful:
@@ -340,17 +341,6 @@ I also enable git-commit-mode for better editing of commit messages:
   (global-git-commit-mode))
 #+END_SRC
 
-*** Autopair
-Autopair automatically inserts the matching character for paired characters like quotes and brackets. It can be configured more for certain languages, but its base setup works well globally:
-#+BEGIN_SRC emacs-lisp
-(use-package autopair
-  :ensure t
-  :diminish
-  :custom
-  (autopair-autowrap t)
-  :config
-  (autopair-global-mode 1))
-#+END_SRC
 *** YASnippet
 YASnippet allows automatic expansion of text snippets. I don't use this much, but it is handy for some common templates, especially as it can run Elisp code as part of the expansion.
 #+BEGIN_SRC emacs-lisp
