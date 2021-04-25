@@ -223,9 +223,9 @@ Next enables font-lock (aka syntax highlighting) globally:
 
 Then enable highlighting matching pairs of brackets and automatic insertion of matching pairs:
 #+BEGIN_SRC emacs-lisp
-  (show-paren-mode)
-  (setq show-paren-style 'parenthesis)
-  (electric-pair-mode 1)
+(show-paren-mode)
+(setq show-paren-style 'mixed)
+(electric-pair-mode 1)
 #+END_SRC
 
 Next enable the diminish package to hide some minor modes from the modeline that I don't find useful:
