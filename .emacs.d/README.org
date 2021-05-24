@@ -642,7 +642,7 @@ For Scala, I want to have a keybinding for that custom formatter. I also want a 
 *** Bazel
 When using Bazel for builds, define several helper functions for navigating and running build targets:
 #+BEGIN_SRC emacs-lisp
-(use-package bazel-mode
+(use-package bazel
   :ensure t
   :config
   (add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
