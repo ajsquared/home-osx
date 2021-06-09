@@ -103,6 +103,11 @@ Do not require typing out =yes= or =no= for confirmation, just =y= or =n=:
 (fset 'yes-or-no-p 'y-or-n-p)
 #+END_SRC
 
+Suppress warnings about functions being redefined:
+#+BEGIN_SRC emacs-lisp
+(setq ad-redefinition-action 'accept)
+#+END_SRC
+
 Finally, I disable the bell for certain commands that ring it frequently:
 #+BEGIN_SRC emacs-lisp
 (setq ring-bell-function 
@@ -555,7 +560,6 @@ Emacs has built-in Python support, but this package adds some niceties, includin
 #+BEGIN_SRC emacs-lisp
   (use-package python-mode
     :ensure t
-    :defer t
     :init
     (add-hook 'python-mode-hook (lambda ()
                                   (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))))
