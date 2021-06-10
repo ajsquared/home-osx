@@ -1,6 +1,4 @@
 # User configuration
-source $HOME/.env_vars
-
 export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME=""
@@ -16,5 +14,6 @@ autoload -U promptinit; promptinit
 prompt pure
 zstyle :prompt:pure:prompt:success color green
 
+source $HOME/.env_vars
 source "$HOME/.bash_aliases"
 
