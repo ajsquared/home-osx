@@ -564,7 +564,7 @@ Emacs has built-in Python support, but this package adds some niceties, includin
     (add-hook 'python-mode-hook (lambda ()
                                   (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))))
     :bind (:map python-mode-map
-                  ("C-c f" . python-format)))
+                  ("C-c f" . zoolander-format)))
 
   (use-package auto-virtualenvwrapper
     :ensure t
@@ -599,21 +599,13 @@ Define a function for running processes in the background, outputting to a buffe
     (internal-temp-output-buffer-show bufname)
     (start-process-shell-command "background-process" bufname command)))
 #+END_SRC
-*** Python Black
-Define a function to run custom code formatter:
-#+BEGIN_SRC emacs-lisp
-(defun python-format ()
-  (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (background-process "./dev/pycheck --fix")))
-#+END_SRC
-*** Scala
+
 Define a function to run custom code formatters:
 #+BEGIN_SRC emacs-lisp
-(defun scala-bazel-format ()
+(defun zoolander-format ()
   (interactive)
   (let ((default-directory (projectile-project-root)))
-    (background-process "./dev/format-build && ./dev/format-scala")))
+    (background-process "./dev/format-build && ./dev/format-scala && ./dev/pycheck --fix")))
 #+END_SRC
 
 For Scala, I want to have a keybinding for that custom formatter. I also want a keybinding to jump to the the Bazel build target for the current file. I also have some convenience function to invoke Bazel build/test from a Scala file:
@@ -638,7 +630,7 @@ For Scala, I want to have a keybinding for that custom formatter. I also want a 
       (test-current-bazel-target)
       (switch-to-buffer (other-buffer (current-buffer) 1)))
     :bind (:map scala-mode-map
-                ("C-c f" . scala-bazel-format)
+                ("C-c f" . zoolander-format)
                 ("C-c b f" . open-bazel-build-for-file)
                 ("C-c b b" . bazel-build-for-file)
                 ("C-c b t" . bazel-test-for-file)))
@@ -682,7 +674,7 @@ When using Bazel for builds, define several helper functions for navigating and 
     (run-bazel-on-target "test"))
 
   :bind (:map bazel-build-mode-map
-              ("C-c f" . scala-bazel-format)
+              ("C-c f" . zoolander-format)
               ("C-c b b" . build-current-bazel-target)
               ("C-c b t" . test-current-bazel-target)
               ("C-c b c" . copy-bazel-build-target-name)))
