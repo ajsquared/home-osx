@@ -638,46 +638,47 @@ For Scala, I want to have a keybinding for that custom formatter. I also want a 
 *** Bazel
 When using Bazel for builds, define several helper functions for navigating and running build targets:
 #+BEGIN_SRC emacs-lisp
-(use-package bazel
-  :ensure t
-  :config
-  (add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
-  (add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-workspace-mode))
-  (add-to-list 'auto-mode-alist '("\\.sky" . bazel-starlark-mode))
+  (use-package bazel
+    :ensure t
+    :demand t
+    :config
+    (add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
+    (add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-workspace-mode))
+    (add-to-list 'auto-mode-alist '("\\.sky$" . bazel-starlark-mode))
 
-  (defun get-bazel-build-target-name ()
-    (unless (looking-at-p ".*(.*\n.*name")
-      (re-search-backward "^.*(.*\n.*name" nil t nil))
-    (re-search-forward ".*name ?=" nil t nil)
-    (let* (
-           (dirname (replace-regexp-in-string "/$" ""
-                                              (replace-regexp-in-string (projectile-project-root) ""
-                                                                        (file-name-directory (buffer-file-name)))))
-           (current-line (thing-at-point 'line t))
-           (target-name (replace-regexp-in-string ".*name ?= ?\"\\(.*\\)\".*\n" "\\1" current-line)))
-      (message "//%s:%s" dirname target-name)))
+    (defun get-bazel-build-target-name ()
+      (unless (looking-at-p ".*(.*\n.*name")
+        (re-search-backward "^.*(.*\n.*name" nil t nil))
+      (re-search-forward ".*name ?=" nil t nil)
+      (let* (
+             (dirname (replace-regexp-in-string "/$" ""
+                                                (replace-regexp-in-string (projectile-project-root) ""
+                                                                          (file-name-directory (buffer-file-name)))))
+             (current-line (thing-at-point 'line t))
+             (target-name (replace-regexp-in-string ".*name ?= ?\"\\(.*\\)\".*\n" "\\1" current-line)))
+        (message "//%s:%s" dirname target-name)))
 
-  (defun copy-bazel-build-target-name ()
-    (interactive)
-    (kill-new (get-bazel-build-target-name)))
+    (defun copy-bazel-build-target-name ()
+      (interactive)
+      (kill-new (get-bazel-build-target-name)))
 
-  (defun run-bazel-on-target (command)
-    (let ((default-directory (projectile-project-root)))
-      (background-process (concat "./bazel " command " " (get-bazel-build-target-name)))))
+    (defun run-bazel-on-target (command)
+      (let ((default-directory (projectile-project-root)))
+        (background-process (concat "./bazel " command " " (get-bazel-build-target-name)))))
 
-  (defun build-current-bazel-target ()
-    (interactive)
-    (run-bazel-on-target "build"))
+    (defun build-current-bazel-target ()
+      (interactive)
+      (run-bazel-on-target "build"))
 
-  (defun test-current-bazel-target ()
-    (interactive)
-    (run-bazel-on-target "test"))
+    (defun test-current-bazel-target ()
+      (interactive)
+      (run-bazel-on-target "test"))
 
-  :bind (:map bazel-build-mode-map
-              ("C-c f" . zoolander-format)
-              ("C-c b b" . build-current-bazel-target)
-              ("C-c b t" . test-current-bazel-target)
-              ("C-c b c" . copy-bazel-build-target-name)))
+    :bind (:map bazel-build-mode-map
+                ("C-c f" . zoolander-format)
+                ("C-c b b" . build-current-bazel-target)
+                ("C-c b t" . test-current-bazel-target)
+                ("C-c b c" . copy-bazel-build-target-name)))
 #+END_SRC
 *** Terraform
 Enable a mode for editing Terraform code, which depends on a base Hashicorp config library:
