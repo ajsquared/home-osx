@@ -560,6 +560,7 @@ Emacs has built-in Python support, but this package adds some niceties, includin
 #+BEGIN_SRC emacs-lisp
   (use-package python-mode
     :ensure t
+    :demand t
     :init
     (add-hook 'python-mode-hook (lambda ()
                                   (setq autopair-handle-action-fns (list #'autopair-default-handle-action #'autopair-python-triple-quote-action))))
