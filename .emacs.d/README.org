@@ -19,6 +19,7 @@ First initialize the package system with the standard archives. MELPA has the mo
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")))
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
 
 (package-initialize)
 #+END_SRC
