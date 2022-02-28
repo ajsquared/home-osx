@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: new scala test
+# key: newtest
+# --
+
+package `(replace-regexp-in-string "/" "." (replace-regexp-in-string "^.*/com" "com" (replace-regexp-in-string "/$" "" (replace-regexp-in-string (projectile-project-root) "" (file-name-directory (buffer-file-name))))))`
+
+import org.scalatest.{FunSpec, Matchers}
+
+class `(file-name-base (buffer-file-name))` extends FunSpec with Matchers {
+  $0
+}
