@@ -101,7 +101,7 @@ Ignore case when entering file names:
 
 Do not require typing out =yes= or =no= for confirmation, just =y= or =n=:
 #+BEGIN_SRC emacs-lisp
-(fset 'yes-or-no-p 'y-or-n-p)
+(setq use-short-answers t)
 #+END_SRC
 
 Suppress warnings about functions being redefined:
