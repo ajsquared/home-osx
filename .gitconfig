@@ -28,6 +28,7 @@
     s = status
     unstage = reset
     rim = rebase -i master
+    amend = commit --amend
 [merge]
     tool = ediff
 [mergetool "ediff"]
