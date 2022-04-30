@@ -362,11 +362,13 @@ When working in Emacs I am generally working on a specific project. I've added s
 
 First is Perspective. This allows defining "groups" of buffers and activating one group at a time. This is convenient for switching between projects without losing my open buffers:
 #+BEGIN_SRC emacs-lisp
-(use-package perspective
-  :ensure t
-  :config
-  (persp-mode)
-  (persp-turn-on-modestring))
+  (use-package perspective
+    :ensure t
+    :custom
+    (persp-suppress-no-prefix-key-warning t)
+    :config
+    (persp-mode)
+    (persp-turn-on-modestring))
 #+END_SRC
 
 Next is Projectile. This is the core project management package for Emacs. It figures out projects automatically based on Git repositories and then allows better navigation within the project.
