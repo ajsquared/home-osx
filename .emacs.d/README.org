@@ -589,12 +589,16 @@ Emacs doesn't have a good built-in mode for YAML either
   :ensure t
   :defer t)
 #+END_SRC
-** Work
-I use Emacs both for work and for personal projects. It is not uncommon for me to need specific customizations for work that aren't necessarily applicable for personal projects. I've grouped all these here so they're all in one place.
 
-This section is likely to contain snippets with hidden assumptions about the environment that may not be applicable anywhere beyond my work computer.
+*** Scala
+I mostly only use Scala at work, but I like to have support for it in Emacs.
+#+BEGIN_SRC emacs-lisp
+(use-package scala-mode
+  :ensure t)
+#+END_SRC
+
 *** Utilities
-Define a function for running processes in the background, outputting to a buffer:
+This defines a function for running processes in the background, outputting to a buffer. I developed this to help with running various external tools.
 #+BEGIN_SRC emacs-lisp
 (defun background-process (command)
   (let ((bufname (generate-new-buffer "*Background Process Output*")))
@@ -603,116 +607,11 @@ Define a function for running processes in the background, outputting to a buffe
     (internal-temp-output-buffer-show bufname)
     (start-process-shell-command "background-process" bufname command)))
 #+END_SRC
+** Work
+I use Emacs both for work and for personal projects. It is not uncommon for me to need specific customizations for work that aren't necessarily applicable for personal projects. I've grouped all these here so they're all in one place.
 
-Define a function to run custom code formatters:
-#+BEGIN_SRC emacs-lisp
-(defun zoolander-format ()
-  (interactive)
-  (let ((default-directory (projectile-project-root)))
-    (background-process "./dev/format-build && ./dev/format-scala && ./dev/pycheck --fix")))
-#+END_SRC
+This section is likely to contain snippets with hidden assumptions about the environment that may not be applicable anywhere beyond my work computer.
 
-For Scala, I want to have a keybinding for that custom formatter. I also want a keybinding to jump to the the Bazel build target for the current file. I also have some convenience function to invoke Bazel build/test from a Scala file:
-#+BEGIN_SRC emacs-lisp
-  (use-package scala-mode
-    :ensure t
-    :config
-    (defun open-bazel-build-for-file ()
-      (interactive)
-      (let ((fname (file-name-nondirectory (buffer-file-name))))
-        (find-file-existing "BUILD")
-        (goto-char (point-min))
-        (search-forward fname nil t nil)))
-    (defun bazel-build-for-file ()
-      (interactive)
-      (open-bazel-build-for-file)
-      (build-current-bazel-target)
-      (switch-to-buffer (other-buffer (current-buffer) 1)))
-    (defun bazel-test-for-file ()
-      (interactive)
-      (open-bazel-build-for-file)
-      (test-current-bazel-target)
-      (switch-to-buffer (other-buffer (current-buffer) 1)))
-    :bind (:map scala-mode-map
-                ("C-c f" . zoolander-format)
-                ("C-c b f" . open-bazel-build-for-file)
-                ("C-c b b" . bazel-build-for-file)
-                ("C-c b t" . bazel-test-for-file)))
-#+END_SRC
-*** Bazel
-When using Bazel for builds, define several helper functions for navigating and running build targets:
-#+BEGIN_SRC emacs-lisp
-  (use-package bazel
-    :ensure t
-    :demand t
-    :config
-    (add-to-list 'auto-mode-alist '("\\BUILD$" . bazel-build-mode))
-    (add-to-list 'auto-mode-alist '("\\WORKSPACE$" . bazel-workspace-mode))
-    (add-to-list 'auto-mode-alist '("\\.sky$" . bazel-starlark-mode))
-
-    (defun get-bazel-build-target-name ()
-      (unless (looking-at-p ".*(.*\n.*name")
-        (re-search-backward "^.*(.*\n.*name" nil t nil))
-      (re-search-forward ".*name ?=" nil t nil)
-      (let* (
-             (dirname (replace-regexp-in-string "/$" ""
-                                                (replace-regexp-in-string (projectile-project-root) ""
-                                                                          (file-name-directory (buffer-file-name)))))
-             (current-line (thing-at-point 'line t))
-             (target-name (replace-regexp-in-string ".*name ?= ?\"\\(.*\\)\".*\n" "\\1" current-line)))
-        (message "//%s:%s" dirname target-name)))
-
-    (defun copy-bazel-build-target-name ()
-      (interactive)
-      (kill-new (get-bazel-build-target-name)))
-
-    (defun run-bazel-on-target (command)
-      (let ((default-directory (projectile-project-root)))
-        (background-process (concat "./bazel " command " " (get-bazel-build-target-name)))))
-
-    (defun build-current-bazel-target ()
-      (interactive)
-      (run-bazel-on-target "build"))
-
-    (defun test-current-bazel-target ()
-      (interactive)
-      (run-bazel-on-target "test"))
-
-    :bind (:map bazel-build-mode-map
-                ("C-c f" . zoolander-format)
-                ("C-c b b" . build-current-bazel-target)
-                ("C-c b t" . test-current-bazel-target)
-                ("C-c b c" . copy-bazel-build-target-name)))
-#+END_SRC
-*** Terraform
-Enable a mode for editing Terraform code, which depends on a base Hashicorp config library:
-#+BEGIN_SRC emacs-lisp
-(use-package hcl-mode
-  :ensure t
-  :defer t)
-
-(use-package terraform-mode
-  :ensure t
-  :defer t
-  :after (hcl-mode))
-#+END_SRC
-*** Puppet
-Enable a mode for editing Puppet code:
-#+BEGIN_SRC emacs-lisp
-(use-package puppet-mode
-  :ensure t
-  :defer t)
-#+END_SRC
-*** Schemas
-Enable modes for editing Thrift and Protocol Buffer schema definitions:
-#+BEGIN_SRC emacs-lisp
-(use-package thrift
-  :ensure t
-  :defer t)
-(use-package protobuf-mode
-  :ensure t
-  :defer t)
-#+END_SRC
 ** Emacs Server
 Since Emacs can be a bit slow to start up, I use =emacsclient= to quickly open files in an existing Emacs instance. =server-start= is all that is necessary to enable this.
 #+BEGIN_SRC emacs-lisp
