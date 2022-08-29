@@ -332,7 +332,7 @@ Here I install Magit and enable some keybindings for it:
 (use-package magit
   :ensure t
   :custom
-  (magit-git-executable "/usr/local/bin/git")
+  (magit-git-executable "/opt/homebrew/bin/git")
   (vc-follow-symlinks t)
   :bind (("C-x v" . magit-status)
          ("C-x f" . magit-log-buffer-file)
