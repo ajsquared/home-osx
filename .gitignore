@@ -9,3 +9,4 @@
 .emacs.d/transient/
 .emacs.d/.dap-breakpoints
 .emacs.d/workspace
+.vscode

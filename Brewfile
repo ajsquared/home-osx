@@ -25,11 +25,12 @@ brew "jq"
 brew "karn"
 brew "libpq", link: true
 brew "markdown"
+brew "mosh"
 brew "ncdu"
 brew "node"
 brew "nodenv"
 brew "openssl@3"
-brew "postgresql@14", restart_service: true, link: false
+brew "postgresql@14", link: false
 brew "pure"
 brew "pyenv-virtualenv"
 brew "python@3.9"
