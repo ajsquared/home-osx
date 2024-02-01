@@ -1521,7 +1521,7 @@
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LeftCommand</key>
-	<integer>1</integer>
+	<integer>2</integer>
 	<key>LeftOption</key>
 	<integer>7</integer>
 	<key>NeverWarnAboutShortLivedSessions_5BF2E7EF-FA6B-4878-BD95-533779B3A02C</key>
@@ -2064,6 +2064,8 @@
 	<true/>
 	<key>PromptOnQuit</key>
 	<false/>
+	<key>RightCommand</key>
+	<integer>1</integer>
 	<key>Selection Respects Soft Boundaries</key>
 	<true/>
 	<key>SoundForEsc</key>
