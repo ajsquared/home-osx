@@ -1411,6 +1411,17 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
+		<key>0x2c-0x100000-0x2b</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0x9-0x100000-0x30</key>
 		<dict>
 			<key>Action</key>
