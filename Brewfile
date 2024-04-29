@@ -17,6 +17,7 @@ brew "colordiff"
 brew "coreutils"
 brew "curl"
 brew "dcmtk"
+brew "diff-so-fancy"
 brew "diffutils"
 brew "docker", link: false
 brew "docker-buildx"
