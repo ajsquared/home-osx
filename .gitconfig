@@ -1,46 +1,46 @@
 [user]
-    name = Andrew Johnson
-    email = andrew@andrewjamesjohnson.com
+	name = Andrew Johnson
+	email = andrew@andrewjamesjohnson.com
 	signingkey = /Users/ajohnson/.ssh/id_ed25519.pub
 [github]
-    user = ajsquared
+	user = ajsquared
 [color]
-    branch = auto
-    diff = auto
-    interactive = auto
-    status = auto
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
 	ui = true
 [alias]
-    main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
-    ap = add --patch
-    bl = blame -w
-    br = branch
-    c = commit -a -m
-    ci = commit
-    co = checkout
-    df = diff
-    l = log --graph --decorate
-    lg = log --decorate -p
-    lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    pom = !git push origin $(git main-branch)
-    po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
-    fpush = "!git push -f origin \"$(git rev-parse --abbrev-ref HEAD)\""
-    pullr = pull --rebase
-    rpull = pull --rebase --stat
-    prom = !git pull --rebase --stat origin $(git main-branch)
-    s = status
-    unstage = reset
-    rim = !git rebase -i $(git main-branch)
-    amend = commit --amend
+	main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
+	ap = add --patch
+	bl = blame -w
+	br = branch
+	c = commit -a -m
+	ci = commit
+	co = checkout
+	df = diff
+	l = log --graph --decorate
+	lg = log --decorate -p
+	lgg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	pom = !git push origin $(git main-branch)
+	po = "!git push --set-upstream origin \"$(git rev-parse --abbrev-ref HEAD)\""
+	fpush = "!git push -f origin \"$(git rev-parse --abbrev-ref HEAD)\""
+	pullr = pull --rebase
+	rpull = pull --rebase --stat
+	prom = !git pull --rebase --stat origin $(git main-branch)
+	s = status
+	unstage = reset
+	rim = !git rebase -i $(git main-branch)
+	amend = commit --amend
 [push]
-    default = simple
+	default = simple
 	autoSetupRemote = true
 [core]
-    preloadindex = true
-    excludesfile = ~/.gitignore
+	preloadindex = true
+	excludesfile = ~/.gitignore
 	pager = diff-so-fancy | less --tabs=4 -RF
 [diff]
-    noprefix = true
+	noprefix = true
 [interactive]
 	diffFilter = diff-so-fancy --patch
 [color "diff-highlight"]
